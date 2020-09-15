@@ -1,0 +1,16 @@
+.card {
+  width: 170px;
+  margin: 10px;
+  background-color: rgb(32, 32, 34);
+}
+
+.card-img {
+  width: 170px;
+  height: 250px;
+}
+
+.card-title {
+  color: white;
+  padding: 5px;
+  text-align: center;
+}
