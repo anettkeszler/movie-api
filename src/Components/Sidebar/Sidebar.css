@@ -17,3 +17,8 @@
   color: white;
   padding: 10px;
 }
+
+.logo-container {
+  width: 100%;
+  text-align: center;
+}
