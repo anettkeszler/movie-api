@@ -1,10 +1,11 @@
 import React from "react";
 import "./Sidebar.css";
 
-export default function Sidebar() {
+function Sidebar() {
   return (
     <div className="sidebar">
-      <div>valami</div>
+      <div className="home-button">HOME</div>
     </div>
   );
 }
+export default Sidebar;

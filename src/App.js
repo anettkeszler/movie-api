@@ -6,9 +6,10 @@ import Sidebar from "./Components/Sidebar/Sidebar";
 
 function App() {
   const [movieData, setMovieData] = useState([]);
-  const url = "http://www.omdbapi.com/?apikey=5848bcce&s=star";
 
   useEffect(() => {
+    for (let i = 0; i < 4; i++) {}
+    const url = `http://www.omdbapi.com/?apikey=5848bcce&s=star`;
     axios.get(url).then((res) => {
       setMovieData(res.data.Search);
     });
