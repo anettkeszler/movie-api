@@ -1,0 +1,11 @@
+.mainpage {
+  width: 85%;
+  float: right;
+}
+
+.title {
+  color: white;
+  text-align: center;
+  font-size: 48px;
+  padding-top: 30px;
+}
