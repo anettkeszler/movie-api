@@ -13,7 +13,7 @@ const Searchbar = () => {
       axios(url + "&s=" + input).then((data) => {
         let results = data.data.Search;
         setMovieData(results);
-        console.log(results);
+        console.log(movieData);
       });
     }
   };
