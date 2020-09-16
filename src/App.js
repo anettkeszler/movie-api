@@ -3,35 +3,24 @@ import axios from 'axios';
 import './App.css';
 import Mainpage from './Components/Mainpage/Mainpage';
 import Sidebar from './Components/Sidebar/Sidebar';
-import Results from './Components/Sort/Results';
 
 function App() {
   const [movieData, setMovieData] = useState([]);
-  const [state, setState] = useState({
-    input: '',
-    results: [],
-    selected: {},
-  });
+  const [input, setInput] = useState('');
 
   const url = 'http://www.omdbapi.com/?i=tt3896198&apikey=8a2bf193';
 
   const handleInput = e => {
     let input = e.target.value;
-    setState(prevState => {
-      return { ...prevState, input: input };
-    });
-    console.log(state.input);
+    setInput(input);
   };
 
   const search = e => {
     if (e.preventDefault) {
-      axios(url + '&s=' + state.input).then(data => {
-        let results = data.data;
-        console.log(data.data.Search);
-
-        setState(prevState => {
-          return { ...prevState, results: results };
-        });
+      axios(url + '&s=' + input).then(data => {
+        let results = data.data.Search;
+        setMovieData(results);
+        console.log(results);
       });
     }
   };
@@ -47,11 +36,10 @@ function App() {
     <React.Fragment>
       <Mainpage
         movieData={movieData}
-        search={search}
         handleInput={handleInput}
+        search={search}
       />
       <Sidebar />
-      <Results results={state.results} />
     </React.Fragment>
   );
 }
