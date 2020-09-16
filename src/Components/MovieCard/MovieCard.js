@@ -4,8 +4,8 @@ import defaultPoster from "./default_poster.jpg";
 import { MovieContext } from "../Provider/MovieProvider";
 
 export default function MovieCard() {
-  let movieData = useContext(MovieContext);
-
+  let [movieData, setMovieData] = useContext(MovieContext);
+  console.log(movieData);
   return movieData.map((movie) => {
     return (
       <div className="card">
