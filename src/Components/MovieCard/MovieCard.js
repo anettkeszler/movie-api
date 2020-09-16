@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./style.css";
+import defaultPoster from "./default_poster.jpg";
+import { MovieContext } from "../Provider/MovieProvider";
 
-export default function MovieCard({ movieData }) {
-  console.log(movieData);
+export default function MovieCard() {
+  let movieData = useContext(MovieContext);
 
   return movieData.map((movie) => {
     return (
       <div className="card">
-        <img className="card-img" src={movie.Poster} alt="" />
+        {movie.Poster === "N/A" ? (
+          <img className="card-img" src={defaultPoster} alt="" />
+        ) : (
+          <img className="card-img" src={movie.Poster} alt="" />
+        )}
         <div className="card-title">
           {movie.Title} ({movie.Year})
         </div>

@@ -3,6 +3,8 @@ import axios from 'axios';
 import './App.css';
 import Mainpage from './Components/Mainpage/Mainpage';
 import Sidebar from './Components/Sidebar/Sidebar';
+import { MovieProvider } from "./Components/Provider/MovieProvider";
+
 
 function App() {
   const [movieData, setMovieData] = useState([]);
@@ -33,14 +35,12 @@ function App() {
   }, []);
 
   return (
-    <React.Fragment>
-      <Mainpage
-        movieData={movieData}
-        handleInput={handleInput}
-        search={search}
-      />
-      <Sidebar />
-    </React.Fragment>
+    <MovieProvider>
+      <React.Fragment>
+        <Mainpage />
+        <Sidebar />
+      </React.Fragment>
+    </MovieProvider>
   );
 }
 
