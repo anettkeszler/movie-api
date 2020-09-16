@@ -1,29 +1,18 @@
-import React from "react";
-import "./style.css";
+import React from 'react';
+import './style.css';
 
-const Searchbar = () => {
-  //   const [state, setState] = useState({
-  //     input: "",
-  //     results: [],
-  //     selected: {},
-  //   });
-  //   const handleInput = (e) => {
-  //     let input = e.target.value;
-  //     setState((prevState) => {
-  //       return { ...prevState, input: input };
-  //     });
-  //   };
-
-  //   useEffect(() => {});
-
+const Searchbar = ({ search, handleInput }) => {
   return (
-    <section className="search-bar">
+    <section className='search-bar'>
       <input
-        className="search-box"
-        type="text"
-        placeholder="Search for a movie"
+        onChange={handleInput}
+        className='search-box'
+        type='text'
+        placeholder='Search for a movie...'
       />
-      <button className="search-button">Search</button>
+      <button onClick={search} className='search-button'>
+        Search
+      </button>
     </section>
   );
 };
