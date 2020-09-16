@@ -1,6 +1,12 @@
-import React from "react";
-import "./style.css";
+import React from 'react';
 
-export default function Result() {
-  return <div></div>;
+function Result(props) {
+  return (
+    <div className='result'>
+      {/* <img src={props.result?.Poster} alt='' /> */}
+      <h3>{props.result?.Title}</h3>
+    </div>
+  );
 }
+
+export default Result;

@@ -1,27 +1,18 @@
 import React from 'react';
 import './style.css';
 
-const Searchbar = props => {
-  // const handleInput = e => {
-  //   let input = e.target.value;
-  //   setState(state => {
-  //     return { ...state, input: input };
-  //   });
-  //   console.log(state.input);
-  // };
-
+const Searchbar = ({ search, handleInput }) => {
   return (
     <section className='search-bar'>
       <input
-        // onChange={handleInput}
+        onChange={handleInput}
         className='search-box'
         type='text'
-        placeholder='Search for a movie'
+        placeholder='Search for a movie...'
       />
-      <button onClick={props.search} className='search-button'>
+      <button onClick={search} className='search-button'>
         Search
       </button>
-      {/* <Searchbar handleInput={handleInput} /> */}
     </section>
   );
 };
