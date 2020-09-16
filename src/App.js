@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import './App.css';
-import Mainpage from './Components/Mainpage/Mainpage';
-import Sidebar from './Components/Sidebar/Sidebar';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import "./App.css";
+import Mainpage from "./Components/Mainpage/Mainpage";
+import Sidebar from "./Components/Sidebar/Sidebar";
 
 function App() {
   const [movieData, setMovieData] = useState([]);

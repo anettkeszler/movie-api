@@ -1,6 +1,7 @@
 import React from "react";
 import "./Sidebar.css";
 import Logo from "../assets/Logo.jpeg";
+import Footer from "../Footer/Footer";
 
 function Sidebar() {
   return (
@@ -9,6 +10,7 @@ function Sidebar() {
         {" "}
         <img className="logo-img" src={Logo} alt="logo" />
       </div>
+      <Footer />
     </div>
   );
 }
