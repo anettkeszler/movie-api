@@ -1,32 +1,36 @@
-import React, { useEffect, useState } from 'react';
-import './movieDetail.css';
-import axios from 'axios';
+import React, { useEffect, useState, useContext } from "react";
+import "./movieDetail.css";
+import axios from "axios";
+import { WatchlistContext } from "../Provider/Watchlistprovider";
 
 export function MovieDetail(props) {
   const [movieDetail, setMovieDetail] = useState([]);
+  const [watchlist, setWatchlist] = useContext(WatchlistContext);
+  console.log(watchlist);
   const imdbId = props.match.params.imdbID;
-  console.log(imdbId);
-  console.log(movieDetail);
-
   const url = `http://www.omdbapi.com/?i=${imdbId}&apikey=8a2bf193`;
 
+  const add = () => {
+    setWatchlist((prevWatchlist) => [...prevWatchlist, movieDetail]);
+  };
+
   useEffect(() => {
-    axios.get(url).then(res => setMovieDetail(res.data));
+    axios.get(url).then((res) => setMovieDetail(res.data));
   }, [url]);
 
   return (
-    <div className='detail-container'>
-      <div className='card-title'>
+    <div className="detail-container">
+      <div className="card-title">
         <h2>
           {movieDetail.Title}
           {movieDetail.Year}
         </h2>
       </div>
-      <div className='poster-text-wrapper'>
-        <div className='poster-box'>
-          <img className='card-img' src={movieDetail?.Poster} alt='' />
+      <div className="poster-text-wrapper">
+        <div className="poster-box">
+          <img className="card-img" src={movieDetail?.Poster} alt="" />
         </div>
-        <div className='text-box'>
+        <div className="text-box">
           <div>
             <span>Runtime: </span>
             {movieDetail.Runtime}
@@ -56,6 +60,9 @@ export function MovieDetail(props) {
             <span>Plot: </span>
             {movieDetail.Plot}
           </div>
+          <button onClick={add} className="search-button">
+            Add
+          </button>
         </div>
       </div>
     </div>
