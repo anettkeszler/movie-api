@@ -22,3 +22,33 @@
   width: 100%;
   text-align: center;
 }
+
+.sidebar-searches {
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.popular-searches {
+  align-content: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.popular-searches li {
+  color: white;
+  padding: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.popular-searches li:hover {
+  background-color: #223343;
+  border-radius: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+  text-decoration: none;
+  list-style: none;
+  cursor: pointer;
+}
