@@ -1,3 +1,7 @@
+* {
+  text-decoration: none;
+}
+
 .sidebar {
   height: 100%;
   width: 15%;
@@ -35,6 +39,7 @@
   align-content: center;
   width: 100%;
   margin-top: 20px;
+  text-decoration: none;
 }
 
 .popular-searches li {
