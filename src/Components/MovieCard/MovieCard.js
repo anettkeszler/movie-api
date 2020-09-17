@@ -23,6 +23,6 @@ export default function MovieCard() {
       );
     });
   } else {
-    return <div className='error-message'>Could not find any movie.</div>;
+    return <div className='error-message'>Could not find any movies.</div>;
   }
 }

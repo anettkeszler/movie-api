@@ -22,8 +22,7 @@ export function MovieDetail(props) {
     <div className="detail-container">
       <div className="card-title">
         <h2>
-          {movieDetail.Title}
-          {movieDetail.Year}
+          {movieDetail.Title} ({movieDetail.Year})
         </h2>
       </div>
       <div className="poster-text-wrapper">
