@@ -1,0 +1,31 @@
+.detail-container {
+  width: 85%;
+  float: right;
+}
+
+.card-title {
+  width: 100%;
+  text-align: center;
+  font-size: 32px;
+  padding: 20px;
+  padding-left: 0px;
+}
+.poster-text-wrapper {
+  display: flex;
+}
+
+.poster-box {
+  width: 20%;
+  float: left;
+  margin: 20px;
+  margin-top: 0;
+  margin-left: 40px;
+}
+
+.text-box {
+  width: 75%;
+  margin: 40px;
+  text-align: left;
+  color: white;
+  margin-left: 0px;
+}
