@@ -8,10 +8,9 @@ const Searchbar = () => {
   const [input, setInput] = useState('');
   const url = 'http://www.omdbapi.com/?i=tt3896198&apikey=8a2bf193';
 
-  const search = e => {
+  const search = (e) => {
     if (e.preventDefault) {
-      axios(url + '&s=' + input).then(data => {
-
+      axios(url + '&s=' + input).then((data) => {
         let results = data.data.Search;
         setMovieData(results);
         console.log(movieData);
@@ -19,14 +18,6 @@ const Searchbar = () => {
     }
   };
 
-
-  const handleKeyPress = (e) => {
-    if (e.key === 'Enter') {
-      handleInput();
-      console.log('hello');
-    }
-  };
-  
   const handleInput = (e) => {
     let input = e.target.value;
     setInput(input);
@@ -34,7 +25,7 @@ const Searchbar = () => {
 
   useEffect(() => {
     const url = `http://www.omdbapi.com/?apikey=8a2bf193&s=star`;
-    axios.get(url).then(res => {
+    axios.get(url).then((res) => {
       setMovieData(res.data.Search);
     });
   }, [setMovieData]);
@@ -43,7 +34,6 @@ const Searchbar = () => {
     <section className='search-bar'>
       <input
         onChange={handleInput}
-        onChange={handleKeyPress}
         className='search-box'
         type='text'
         placeholder='Search for a movie...'

@@ -2,6 +2,7 @@
   width: 170px;
   margin: 10px;
   background-color: rgb(32, 32, 34);
+  text-decoration: none;
 }
 
 .card:hover {
@@ -16,10 +17,15 @@
   height: 250px;
 }
 
-.card-title {
+.card-titles {
   color: white;
   padding: 5px;
   text-align: center;
+  font-size: 18px;
+}
+
+.card-title:visited {
+  color: white;
 }
 
 .error-message {
