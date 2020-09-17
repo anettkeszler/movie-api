@@ -18,13 +18,19 @@ const Searchbar = () => {
     }
   };
 
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      handleInput();
+      console.log('hello');
+    }
+  };
   const handleInput = (e) => {
     let input = e.target.value;
     setInput(input);
   };
 
   useEffect(() => {
-    const url = `http://www.omdbapi.com/?apikey=8a2bf193&s=star`;
+    const url = `http://www.omdbapi.com/?apikey=8a2bf193&`;
     axios.get(url).then((res) => {
       setMovieData(res.data.Search);
     });
@@ -33,7 +39,7 @@ const Searchbar = () => {
   return (
     <section className='search-bar'>
       <input
-        onChange={handleInput}
+        onChange={handleKeyPress}
         className='search-box'
         type='text'
         placeholder='Search for a movie...'
