@@ -43,6 +43,11 @@
   font-size: 20px;
   font-weight: bold;
   text-align: center;
+  text-decoration: none;
+}
+
+.popular-searches li:visited {
+  text-decoration: none;
 }
 
 .popular-searches li:hover {
@@ -53,4 +58,12 @@
   text-decoration: none;
   list-style: none;
   cursor: pointer;
+}
+
+.sidebar-link {
+  text-decoration: none;
+}
+
+.popular-movie:visited {
+  text-decoration: none;
 }
