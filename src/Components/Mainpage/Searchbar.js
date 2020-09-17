@@ -20,11 +20,12 @@ const Searchbar = () => {
 
   const handleInput = (e) => {
     let input = e.target.value;
+    console.log(input);
     setInput(input);
   };
 
   useEffect(() => {
-    const url = `http://www.omdbapi.com/?apikey=8a2bf193&s=star`;
+    const url = `http://www.omdbapi.com/?apikey=8a2bf193&`;
     axios.get(url).then((res) => {
       setMovieData(res.data.Search);
     });

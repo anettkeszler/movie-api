@@ -21,3 +21,11 @@
   padding: 5px;
   text-align: center;
 }
+
+.error-message {
+  color: white;
+  text-align: center;
+  font-size: 40px;
+  width: 100%;
+  padding-top: 30px;
+}

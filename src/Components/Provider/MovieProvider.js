@@ -1,5 +1,5 @@
-import React, { useState, useEffect, createContext } from "react";
-import axios from "axios";
+import React, { useState, useEffect, createContext } from 'react';
+import axios from 'axios';
 
 export const MovieContext = createContext();
 
@@ -8,7 +8,7 @@ export const MovieProvider = (props) => {
   console.log(movieData);
 
   useEffect(() => {
-    const url = `http://www.omdbapi.com/?apikey=5848bcce&s=star`;
+    const url = `http://www.omdbapi.com/?apikey=5848bcce`;
     axios.get(url).then((res) => {
       setMovieData(res.data.Search);
       console.log(res.data.Search);
