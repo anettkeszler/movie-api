@@ -18,9 +18,14 @@ const Searchbar = () => {
     }
   };
 
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      handleInput();
+      console.log('hello');
+    }
+  };
   const handleInput = (e) => {
     let input = e.target.value;
-    console.log(input);
     setInput(input);
   };
 
@@ -34,7 +39,7 @@ const Searchbar = () => {
   return (
     <section className='search-bar'>
       <input
-        onChange={handleInput}
+        onChange={handleKeyPress}
         className='search-box'
         type='text'
         placeholder='Search for a movie...'
