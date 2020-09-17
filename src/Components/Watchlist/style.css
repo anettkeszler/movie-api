@@ -5,6 +5,14 @@
   margin: 0 auto;
 }
 
+.watchlist-title {
+  color: white;
+  text-align: center;
+  font-size: 48px;
+  padding-top: 30px;
+  width: 100%;
+}
+
 .card {
   width: 170px;
   margin: 10px;

@@ -1,7 +1,7 @@
-import React, { useEffect, useState, useContext } from "react";
-import "./movieDetail.css";
-import axios from "axios";
-import { WatchlistContext } from "../Provider/Watchlistprovider";
+import React, { useEffect, useState, useContext } from 'react';
+import './movieDetail.css';
+import axios from 'axios';
+import { WatchlistContext } from '../Provider/Watchlistprovider';
 
 export function MovieDetail(props) {
   const [movieDetail, setMovieDetail] = useState([]);
@@ -19,17 +19,17 @@ export function MovieDetail(props) {
   }, [url]);
 
   return (
-    <div className="detail-container">
-      <div className="card-title">
+    <div className='detail-container'>
+      <div className='card-title'>
         <h2>
           {movieDetail.Title} ({movieDetail.Year})
         </h2>
       </div>
-      <div className="poster-text-wrapper">
-        <div className="poster-box">
-          <img className="card-img" src={movieDetail?.Poster} alt="" />
+      <div className='poster-text-wrapper'>
+        <div className='poster-box'>
+          <img className='card-img' src={movieDetail?.Poster} alt='' />
         </div>
-        <div className="text-box">
+        <div className='text-box'>
           <div>
             <span>Runtime: </span>
             {movieDetail.Runtime}
@@ -59,7 +59,7 @@ export function MovieDetail(props) {
             <span>Plot: </span>
             {movieDetail.Plot}
           </div>
-          <button onClick={add} className="search-button">
+          <button onClick={add} className='add-to-watchlist-button'>
             Add
           </button>
         </div>

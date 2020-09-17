@@ -1,11 +1,10 @@
-import React, { useContext, useState } from "react";
-import "./Sidebar.css";
-import Logo from "../assets/Logo.jpeg";
-import axios from "axios";
-import { MovieContext } from "../Provider/MovieProvider";
-import Footer from "../Footer/Footer";
-import { Link } from "react-router-dom";
-
+import React, { useContext } from 'react';
+import './Sidebar.css';
+import Logo from '../assets/Logo.jpeg';
+import axios from 'axios';
+import { MovieContext } from '../Provider/MovieProvider';
+import Footer from '../Footer/Footer';
+import { Link } from 'react-router-dom';
 
 function Sidebar() {
   const randomIds = [
@@ -50,15 +49,15 @@ function Sidebar() {
   };
 
   return (
-    <div className="sidebar">
-      <Link to={"/"}>
-        <div className="logo-container">
-          {" "}
-          <img className="logo-img" src={Logo} alt="logo" />
+    <div className='sidebar'>
+      <Link to={'/'}>
+        <div className='logo-container'>
+          {' '}
+          <img className='logo-img' src={Logo} alt='logo' />
         </div>
       </Link>
-      <div className="sidebar-searches">Popular searches:</div>
-      <ul className="popular-searches">
+      <div className='sidebar-searches'>Popular searches:</div>
+      <ul className='popular-searches'>
         <Link to={`/`} onClick={handleValue}>
           <li onClick={handleValue}>Superman</li>
         </Link>
@@ -77,9 +76,11 @@ function Sidebar() {
           <div className='random-button'>Random Movie</div>
         </Link>
       </div>
-      <Link to={"/watchlist"}>
-        <div className="watchlist-button">Watchlist</div>
-      </Link>
+      <div>
+        <Link to={'/watchlist'}>
+          <div className='watchlist-button'>Watchlist</div>
+        </Link>
+      </div>
       <Footer />
     </div>
   );
