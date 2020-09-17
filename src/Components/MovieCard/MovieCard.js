@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import './style.css';
 import defaultPoster from './default_poster.jpg';
 import { MovieContext } from '../Provider/MovieProvider';
+import { Link } from 'react-router-dom';
 
 export default function MovieCard() {
   let [movieData] = useContext(MovieContext);
@@ -9,7 +10,7 @@ export default function MovieCard() {
   console.log(movieData);
   return movieData.map(movie => {
     return (
-      <div className='card'>
+      <Link className='card' to={`/movie/${movieData.imdbID}`}>
         {movie.Poster === 'N/A' ? (
           <img className='card-img' src={defaultPoster} alt='' />
         ) : (
@@ -18,7 +19,7 @@ export default function MovieCard() {
         <div className='card-title'>
           {movie.Title} ({movie.Year})
         </div>
-      </div>
+      </Link>
     );
   });
 }
