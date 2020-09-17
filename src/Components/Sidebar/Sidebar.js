@@ -3,6 +3,7 @@ import './Sidebar.css';
 import Logo from '../assets/Logo.jpeg';
 import axios from 'axios';
 import { MovieContext } from '../Provider/MovieProvider';
+import Footer from "../Footer/Footer";
 
 function Sidebar() {
   const [movieData, setMovieData] = useContext(MovieContext);
@@ -32,6 +33,8 @@ function Sidebar() {
         <li onClick={handleValue}>Harry Potter</li>
         <li onClick={handleValue}>Twilight</li>
       </ul>
+
+      <Footer />
     </div>
   );
 }
