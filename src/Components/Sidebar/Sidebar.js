@@ -32,9 +32,7 @@ function Sidebar() {
   const [movieData, setMovieData] = useContext(MovieContext);
 
   const getRandomID = () => {
-    const randomId = randomIds[Math.floor(Math.random() * randomIds.length)];
-    console.log(randomId);
-    return randomId;
+    return randomIds[Math.floor(Math.random() * randomIds.length)];
   };
 
   const handleValue = (e) => {
