@@ -3,7 +3,8 @@ import './Sidebar.css';
 import Logo from '../assets/Logo.jpeg';
 import axios from 'axios';
 import { MovieContext } from '../Provider/MovieProvider';
-import Footer from "../Footer/Footer";
+import Footer from '../Footer/Footer';
+import { Link } from 'react-router-dom';
 
 function Sidebar() {
   const [movieData, setMovieData] = useContext(MovieContext);
@@ -22,18 +23,28 @@ function Sidebar() {
   };
   return (
     <div className='sidebar'>
-      <div className='logo-container'>
-        {' '}
-        <img className='logo-img' src={Logo} alt='logo' />
-      </div>
+      <Link to={'/'}>
+        <div className='logo-container'>
+          {' '}
+          <img className='logo-img' src={Logo} alt='logo' />
+        </div>
+      </Link>
       <div className='sidebar-searches'>Popular searches</div>
-      <ul className='popular-searches'>
-        <li onClick={handleValue}>Superman</li>
-        <li onClick={handleValue}>Star Wars</li>
-        <li onClick={handleValue}>Harry Potter</li>
-        <li onClick={handleValue}>Twilight</li>
-      </ul>
 
+      <ul className='popular-searches'>
+        <Link to={`/`} onClick={handleValue}>
+          <li onClick={handleValue}>Superman</li>{' '}
+        </Link>
+        <Link to={`/`} onClick={handleValue}>
+          <li onClick={handleValue}>Star Wars</li>
+        </Link>
+        <Link to={`/`} onClick={handleValue}>
+          <li onClick={handleValue}>Harry Potter</li>
+        </Link>
+        <Link to={`/`} onClick={handleValue}>
+          <li onClick={handleValue}>Twilight</li>
+        </Link>
+      </ul>
       <Footer />
     </div>
   );

@@ -22,7 +22,7 @@
   outline: none;
   background: none;
   background-color: white;
-  border-radius: 8px;
+  border-radius: 10px 0 0 10px;
   color: #53565a;
   font-size: 20px;
   transition: 0.4s ease-out;
@@ -53,13 +53,13 @@
   line-height: 38px;
   -moz-border-radius: 0 0 3px 3px;
   -webkit-border-radius: 0 0 3px 3px;
-  border-radius: 0 0 3px 3px;
+  border-radius: 0 10px 10px 0px;
   vertical-align: middle;
   display: inline-block;
   font-size: 19px;
   color: #ffffff;
   width: 150px;
-  height: 48px;
+  height: 53px;
   border-color: #244047;
   border-width: 1px;
   border-style: solid;
