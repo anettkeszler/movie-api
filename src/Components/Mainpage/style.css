@@ -89,4 +89,5 @@
   background: -webkit-linear-gradient(#205075, #0f383d);
   background: -ms-linear-gradient(#205075, #0f383d);
   background: linear-gradient(#205075, #0f383d);
+  cursor: pointer;
 }

@@ -66,3 +66,21 @@
   border-width: 1px;
   border-style: solid;
 }
+
+.add-to-watchlist-button:hover {
+  background: #205075;
+  background: -o-linear-gradient(90deg, #205075, #0f383d);
+  background: -moz-linear-gradient(center top, #205075 5%, #0f383d 100%);
+  background: webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0.05, #205075),
+    color-stop(1, #0f383d)
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#205075', endColorstr='#0f383d');
+  background: -webkit-linear-gradient(#205075, #0f383d);
+  background: -ms-linear-gradient(#205075, #0f383d);
+  background: linear-gradient(#205075, #0f383d);
+  cursor: pointer;
+}
