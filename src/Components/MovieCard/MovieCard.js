@@ -6,11 +6,9 @@ import { Link } from 'react-router-dom';
 
 export default function MovieCard() {
   let [movieData] = useContext(MovieContext);
-
-  console.log(movieData);
   return movieData.map(movie => {
     return (
-      <Link className='card' to={`/movie/${movieData.imdbID}`}>
+      <Link className='card' to={`/movie/${movie.imdbID}`}>
         {movie.Poster === 'N/A' ? (
           <img className='card-img' src={defaultPoster} alt='' />
         ) : (
