@@ -8,6 +8,7 @@ export const MovieProvider = (props) => {
 
   useEffect(() => {
     const url = `http://www.omdbapi.com/?apikey=5848bcce&s=star`;
+
     axios.get(url).then((res) => {
       setMovieData(res.data.Search);
       console.log(res.data.Search);
