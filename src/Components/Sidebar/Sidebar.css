@@ -67,3 +67,24 @@
 .popular-movie:visited {
   text-decoration: none;
 }
+
+.random-button {
+  color: white;
+  height: 50px;
+  padding-top: 14px;
+  margin-top: 50px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+}
+
+.random-button:hover {
+  background-color: #223343;
+  border-radius: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+  text-decoration: none;
+  list-style: none;
+  cursor: pointer;
+}
