@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import './style.css';
 import defaultPoster from './default_poster.jpg';
 import { MovieContext } from '../Provider/MovieProvider';
-
 import { Link } from 'react-router-dom';
 
 export default function MovieCard() {
@@ -17,7 +16,7 @@ export default function MovieCard() {
           ) : (
             <img className='card-img' src={movie.Poster} alt='' />
           )}
-          <div className='card-title'>
+          <div className='card-titles'>
             {movie.Title} ({movie.Year})
           </div>
         </Link>
