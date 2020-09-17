@@ -11,6 +11,7 @@ const Searchbar = () => {
   const search = e => {
     if (e.preventDefault) {
       axios(url + '&s=' + input).then(data => {
+
         let results = data.data.Search;
         setMovieData(results);
         console.log(movieData);
@@ -18,7 +19,15 @@ const Searchbar = () => {
     }
   };
 
-  const handleInput = e => {
+
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      handleInput();
+      console.log('hello');
+    }
+  };
+  
+  const handleInput = (e) => {
     let input = e.target.value;
     setInput(input);
   };
@@ -34,6 +43,7 @@ const Searchbar = () => {
     <section className='search-bar'>
       <input
         onChange={handleInput}
+        onChange={handleKeyPress}
         className='search-box'
         type='text'
         placeholder='Search for a movie...'

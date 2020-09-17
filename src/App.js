@@ -6,6 +6,7 @@ import { MovieProvider } from './Components/Provider/MovieProvider';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import MovieDetail from './Components/DetailedPage/MovieDetail';
 
+
 function App() {
   return (
     <BrowserRouter>
