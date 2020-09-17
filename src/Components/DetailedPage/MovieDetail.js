@@ -5,13 +5,13 @@ import axios from 'axios';
 export function MovieDetail(props) {
   const [movieDetail, setMovieDetail] = useState([]);
   const imdbId = props.match.params.imdbID;
-  console.log(imdbId);
+  console.log('Hello: ' + imdbId);
   console.log(movieDetail);
 
   const url = `http://www.omdbapi.com/?i=${imdbId}&apikey=8a2bf193`;
 
   useEffect(() => {
-    axios.get(url).then(res => setMovieDetail(res.data));
+    axios.get(url).then((res) => setMovieDetail(res.data));
   }, [url]);
 
   return (
