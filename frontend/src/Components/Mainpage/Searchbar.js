@@ -24,7 +24,7 @@ const Searchbar = () => {
   };
 
   useEffect(() => {
-    const url = `http://www.omdbapi.com/?apikey=8a2bf193&s=star`;
+    const url = `http://localhost:8080/movie`;
     axios.get(url).then((res) => {
       setMovieData(res.data.Search);
     });
