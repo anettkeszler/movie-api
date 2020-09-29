@@ -9,9 +9,9 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class MovieApiService {
 
-    public Movie getMovieById() {
+    public Movie getMovie() {
         RestTemplate template = new RestTemplate();
-        ResponseEntity<Movie> movieResponseEntity = template.exchange("http://www.omdbapi.com/?apikey=8a2bf193&s=star", HttpMethod.GET, null, Movie.class);
+        ResponseEntity<Movie> movieResponseEntity = template.exchange("http://www.omdbapi.com/?apikey=8a2bf193&s=pirates", HttpMethod.GET, null, Movie.class);
         return movieResponseEntity.getBody();
     }
 }
