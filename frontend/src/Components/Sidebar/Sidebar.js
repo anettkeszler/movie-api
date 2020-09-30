@@ -42,10 +42,17 @@ function Sidebar() {
 
   const search = (input) => {
     let value = input;
-    const url = `http://www.omdbapi.com/?apikey=8a2bf193&s=` + value;
-    axios.get(url).then((res) => {
-      setMovieData(res.data.Search);
-    });
+    axios
+      .post('http://localhost:8080/search', value, {
+        headers: { 'Content-Type': 'text/plain' },
+      })
+      .then((response) => {
+        setMovieData(response.data.Search);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    console.log(input);
   };
 
   return (
@@ -57,20 +64,20 @@ function Sidebar() {
         </div>
       </Link>
       <div className='sidebar-searches'>Popular searches:</div>
-      <ul className='popular-searches'>
+      <div className='popular-searches'>
         <Link to={`/`} onClick={handleValue}>
-          <li onClick={handleValue}>Superman</li>
+          Superman
         </Link>
         <Link to={`/`} onClick={handleValue}>
-          <li onClick={handleValue}>Star Wars</li>
+          Star Wars
         </Link>
         <Link to={`/`} onClick={handleValue}>
-          <li onClick={handleValue}>Harry Potter</li>
+          Harry Potter
         </Link>
         <Link to={`/`} onClick={handleValue}>
-          <li onClick={handleValue}>Twilight</li>
+          Twilight
         </Link>
-      </ul>
+      </div>
       <div>
         <Link to={`/movie/${getRandomID()}`}>
           <div className='random-button'>Random Movie</div>

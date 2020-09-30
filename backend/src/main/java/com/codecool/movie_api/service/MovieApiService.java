@@ -22,5 +22,17 @@ public class MovieApiService {
         return movieResponseEntity.getBody();
     }
 
+    public Movie getSidebarMovie(String input) {
+        RestTemplate template = new RestTemplate();
+        ResponseEntity<Movie> movieResponseEntity = template.exchange("http://www.omdbapi.com/?apikey=8a2bf193&s=" + input , HttpMethod.GET, null, Movie.class);
+        return movieResponseEntity.getBody();
+    }
+
+    public Movie getMovieData(String id) {
+        RestTemplate template = new RestTemplate();
+        ResponseEntity<Movie> movieResponseEntity = template.exchange("http://www.omdbapi.com/?apikey=8a2bf193&i=" + id , HttpMethod.GET, null, Movie.class);
+        return movieResponseEntity.getBody();
+    }
+
 
 }

@@ -15,7 +15,6 @@ const Searchbar = () => {
           headers: { 'Content-Type': 'text/plain' },
         })
         .then((response) => {
-          console.log(response);
           setMovieData(response.data.Search);
         })
         .catch((error) => {
@@ -31,7 +30,7 @@ const Searchbar = () => {
   };
 
   useEffect(() => {
-    const url = `http://localhost:8080/movie`;
+    const url = `http://localhost:8080/search`;
     axios.get(url).then((res) => {
       setMovieData(res.data.Search);
     });
