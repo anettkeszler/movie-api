@@ -10,11 +10,15 @@ const Searchbar = () => {
 
   const search = (e) => {
     if (e.preventDefault) {
-      axios(url + '&s=' + input).then((data) => {
-        let results = data.data.Search;
-        setMovieData(results);
-        console.log(movieData);
-      });
+      axios
+        .post('http://localhost:8080/search', input)
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      console.log(input);
     }
   };
 

@@ -6,7 +6,6 @@ import { WatchlistContext } from '../Provider/Watchlistprovider';
 export function MovieDetail(props) {
   const [movieDetail, setMovieDetail] = useState([]);
   const [watchlist, setWatchlist] = useContext(WatchlistContext);
-  console.log(watchlist);
   const imdbId = props.match.params.imdbID;
   const url = `http://www.omdbapi.com/?i=${imdbId}&apikey=8a2bf193`;
 
