@@ -21,7 +21,7 @@ public class MovieController {
     @PostMapping("/search")
     public Object getSearchResult(@RequestBody String input) {
         System.out.println(input);
-        return input;
+        return movieApiService.getSearchResult(input);
     }
 
 

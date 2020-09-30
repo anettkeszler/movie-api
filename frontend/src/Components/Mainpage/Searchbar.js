@@ -11,9 +11,12 @@ const Searchbar = () => {
   const search = (e) => {
     if (e.preventDefault) {
       axios
-        .post('http://localhost:8080/search', input)
+        .post('http://localhost:8080/search', input, {
+          headers: { 'Content-Type': 'text/plain' },
+        })
         .then((response) => {
           console.log(response);
+          setMovieData(response.data.Search);
         })
         .catch((error) => {
           console.log(error);
