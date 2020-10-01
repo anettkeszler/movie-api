@@ -6,7 +6,6 @@ import { MovieContext } from '../Provider/MovieProvider';
 const Searchbar = () => {
   const [movieData, setMovieData] = useContext(MovieContext);
   const [input, setInput] = useState('');
-  const url = 'http://www.omdbapi.com/?i=tt3896198&apikey=8a2bf193';
 
   const search = (e) => {
     if (e.preventDefault) {

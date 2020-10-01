@@ -77,7 +77,7 @@ function Sidebar() {
         </div>
         <div className='div_link'>
           <Link to={`/`} onClick={handleValue}>
-            Harry Potter
+            <p className='buton-test'>Harry Potter</p>
           </Link>
         </div>
         <div className='div_link'>
