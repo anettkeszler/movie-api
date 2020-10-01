@@ -21,7 +21,6 @@ public class MovieApiService {
     public Movie getSearchResult(String input) {
         RestTemplate template = new RestTemplate();
         ResponseEntity<Movie> movieResponseEntity = template.exchange("http://www.omdbapi.com/?apikey=8a2bf193&s=" + input , HttpMethod.GET, null, Movie.class);
-        System.out.println("http://www.omdbapi.com/?apikey=8a2bf193&s=" + input);
         return movieResponseEntity.getBody();
     }
 
@@ -34,8 +33,6 @@ public class MovieApiService {
     public MovieAbout getMovieData(String id) {
         RestTemplate template = new RestTemplate();
         ResponseEntity<MovieAbout> movieResponseEntity = template.exchange("http://www.omdbapi.com/?i=" + id + "&apikey=8a2bf193", HttpMethod.GET, null, MovieAbout.class);
-        System.out.println("http://www.omdbapi.com/?i=" + id + "&apikey=8a2bf193");
-        System.out.println(movieResponseEntity.getBody());
         return movieResponseEntity.getBody();
     }
 

@@ -19,7 +19,6 @@ export function MovieDetail(props) {
         headers: { 'Content-Type': 'text/plain' },
       })
       .then((response) => {
-        console.log(response);
         setMovieDetail(response.data);
       })
       .catch((error) => {
