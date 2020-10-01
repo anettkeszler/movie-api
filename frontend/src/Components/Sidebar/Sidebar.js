@@ -65,18 +65,26 @@ function Sidebar() {
       </Link>
       <div className='sidebar-searches'>Popular searches:</div>
       <div className='popular-searches'>
-        <Link to={`/`} onClick={handleValue}>
-          Superman
-        </Link>
-        <Link to={`/`} onClick={handleValue}>
-          Star Wars
-        </Link>
-        <Link to={`/`} onClick={handleValue}>
-          Harry Potter
-        </Link>
-        <Link to={`/`} onClick={handleValue}>
-          Twilight
-        </Link>
+        <div className='div_link'>
+          <Link to={`/`} onClick={handleValue}>
+            Superman
+          </Link>
+        </div>
+        <div className='div_link'>
+          <Link to={`/`} onClick={handleValue}>
+            Star Wars
+          </Link>
+        </div>
+        <div className='div_link'>
+          <Link to={`/`} onClick={handleValue}>
+            Harry Potter
+          </Link>
+        </div>
+        <div className='div_link'>
+          <Link to={`/`} onClick={handleValue}>
+            Twilight
+          </Link>
+        </div>
       </div>
       <div>
         <Link to={`/movie/${getRandomID()}`}>

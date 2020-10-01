@@ -1,10 +1,12 @@
 package com.codecool.movie_api.service;
 
 import com.codecool.movie_api.model.generated.Movie;
+import com.codecool.movie_api.model.generated.MovieAbout;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.json.GsonBuilderUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestTemplate;
 
 @Service
@@ -19,6 +21,7 @@ public class MovieApiService {
     public Movie getSearchResult(String input) {
         RestTemplate template = new RestTemplate();
         ResponseEntity<Movie> movieResponseEntity = template.exchange("http://www.omdbapi.com/?apikey=8a2bf193&s=" + input , HttpMethod.GET, null, Movie.class);
+        System.out.println("http://www.omdbapi.com/?apikey=8a2bf193&s=" + input);
         return movieResponseEntity.getBody();
     }
 
@@ -28,9 +31,11 @@ public class MovieApiService {
         return movieResponseEntity.getBody();
     }
 
-    public Movie getMovieData(String id) {
+    public MovieAbout getMovieData(String id) {
         RestTemplate template = new RestTemplate();
-        ResponseEntity<Movie> movieResponseEntity = template.exchange("http://www.omdbapi.com/?apikey=8a2bf193&i=" + id , HttpMethod.GET, null, Movie.class);
+        ResponseEntity<MovieAbout> movieResponseEntity = template.exchange("http://www.omdbapi.com/?i=" + id + "&apikey=8a2bf193", HttpMethod.GET, null, MovieAbout.class);
+        System.out.println("http://www.omdbapi.com/?i=" + id + "&apikey=8a2bf193");
+        System.out.println(movieResponseEntity.getBody());
         return movieResponseEntity.getBody();
     }
 
