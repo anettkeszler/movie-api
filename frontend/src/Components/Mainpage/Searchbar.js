@@ -6,25 +6,30 @@ import { MovieContext } from '../Provider/MovieProvider';
 const Searchbar = () => {
   const [movieData, setMovieData] = useContext(MovieContext);
   const [input, setInput] = useState('');
-  const url = 'http://www.omdbapi.com/?i=tt3896198&apikey=8a2bf193';
-
-  const search = (e) => {
-    if (e.preventDefault) {
-      axios(url + '&s=' + input).then((data) => {
-        let results = data.data.Search;
-        setMovieData(results);
-        console.log(movieData);
-      });
-    }
-  };
 
   const handleInput = (e) => {
     let input = e.target.value;
     setInput(input);
   };
 
+  const search = (e) => {
+    if (e.preventDefault) {
+      axios
+        .post('http://localhost:8080/search', input, {
+          headers: { 'Content-Type': 'text/plain' },
+        })
+        .then((response) => {
+          setMovieData(response.data.Search);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      console.log(input);
+    }
+  };
+
   useEffect(() => {
-    const url = `http://localhost:8080/movie`;
+    const url = `http://localhost:8080/search`;
     axios.get(url).then((res) => {
       setMovieData(res.data.Search);
     });

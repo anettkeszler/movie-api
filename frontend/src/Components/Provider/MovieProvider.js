@@ -10,11 +10,9 @@ export const MovieProvider = (props) => {
     const url = `http://localhost:8080/movie`;
     axios.get(url).then((res) => {
       setMovieData(res.data.Search);
-      console.log(res.data.Search);
     });
   }, []);
 
-  console.log(movieData);
   return (
     <MovieContext.Provider value={[movieData, setMovieData]}>
       {props.children}

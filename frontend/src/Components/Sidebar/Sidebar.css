@@ -62,7 +62,7 @@
   text-decoration: none;
 }
 
-.popular-searches li {
+.div_link {
   color: white;
   padding: 10px;
   font-size: 20px;
@@ -71,11 +71,12 @@
   text-decoration: none;
 }
 
-.popular-searches li:visited {
+.Link:visited {
   text-decoration: none;
+  color: white;
 }
 
-.popular-searches li:hover {
+.div_link:hover {
   background-color: #223343;
   border-radius: 10px;
   margin-left: 20px;
@@ -87,6 +88,14 @@
 
 .sidebar-link {
   text-decoration: none;
+}
+
+.buton-test {
+  color: white;
+}
+
+.popular-searches Link {
+  width: 100%;
 }
 
 .popular-movie:visited {

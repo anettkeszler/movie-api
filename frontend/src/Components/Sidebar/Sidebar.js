@@ -42,10 +42,17 @@ function Sidebar() {
 
   const search = (input) => {
     let value = input;
-    const url = `http://www.omdbapi.com/?apikey=8a2bf193&s=` + value;
-    axios.get(url).then((res) => {
-      setMovieData(res.data.Search);
-    });
+    axios
+      .post('http://localhost:8080/search', value, {
+        headers: { 'Content-Type': 'text/plain' },
+      })
+      .then((response) => {
+        setMovieData(response.data.Search);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    console.log(input);
   };
 
   return (
@@ -57,20 +64,28 @@ function Sidebar() {
         </div>
       </Link>
       <div className='sidebar-searches'>Popular searches:</div>
-      <ul className='popular-searches'>
-        <Link to={`/`} onClick={handleValue}>
-          <li onClick={handleValue}>Superman</li>
-        </Link>
-        <Link to={`/`} onClick={handleValue}>
-          <li onClick={handleValue}>Star Wars</li>
-        </Link>
-        <Link to={`/`} onClick={handleValue}>
-          <li onClick={handleValue}>Harry Potter</li>
-        </Link>
-        <Link to={`/`} onClick={handleValue}>
-          <li onClick={handleValue}>Twilight</li>
-        </Link>
-      </ul>
+      <div className='popular-searches'>
+        <div className='div_link'>
+          <Link to={`/`} onClick={handleValue}>
+            <p className='div_link'>Superman</p>
+          </Link>
+        </div>
+        <div className='div_link'>
+          <Link to={`/`} onClick={handleValue}>
+            <p className='div_link'>Star Wars</p>
+          </Link>
+        </div>
+        <div className='div_link'>
+          <Link to={`/`} onClick={handleValue}>
+            <p className='buton-test'>Harry Potter</p>
+          </Link>
+        </div>
+        <div className='div_link'>
+          <Link to={`/`} onClick={handleValue}>
+            <p className='div_link'>Twilight</p>
+          </Link>
+        </div>
+      </div>
       <div>
         <Link to={`/movie/${getRandomID()}`}>
           <div className='random-button'>Random Movie</div>

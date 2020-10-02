@@ -4,19 +4,27 @@ import axios from 'axios';
 import { WatchlistContext } from '../Provider/Watchlistprovider';
 
 export function MovieDetail(props) {
-  const [movieDetail, setMovieDetail] = useState([]);
+  const [movieDetail, setMovieDetail] = useState([[]]);
   const [watchlist, setWatchlist] = useContext(WatchlistContext);
-  console.log(watchlist);
   const imdbId = props.match.params.imdbID;
-  const url = `http://www.omdbapi.com/?i=${imdbId}&apikey=8a2bf193`;
+  const url = `http://localhost:8080/about`;
 
   const add = () => {
     setWatchlist((prevWatchlist) => [...prevWatchlist, movieDetail]);
   };
 
   useEffect(() => {
-    axios.get(url).then((res) => setMovieDetail(res.data));
-  }, [url]);
+    axios
+      .post('http://localhost:8080/about', imdbId, {
+        headers: { 'Content-Type': 'text/plain' },
+      })
+      .then((response) => {
+        setMovieDetail(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [imdbId, url]);
 
   return (
     <div className='detail-container'>
