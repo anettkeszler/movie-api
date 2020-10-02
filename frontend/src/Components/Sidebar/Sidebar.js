@@ -67,12 +67,12 @@ function Sidebar() {
       <div className='popular-searches'>
         <div className='div_link'>
           <Link to={`/`} onClick={handleValue}>
-            Superman
+            <p className='div_link'>Superman</p>
           </Link>
         </div>
         <div className='div_link'>
           <Link to={`/`} onClick={handleValue}>
-            Star Wars
+            <p className='div_link'>Star Wars</p>
           </Link>
         </div>
         <div className='div_link'>
@@ -82,7 +82,7 @@ function Sidebar() {
         </div>
         <div className='div_link'>
           <Link to={`/`} onClick={handleValue}>
-            Twilight
+            <p className='div_link'>Twilight</p>
           </Link>
         </div>
       </div>

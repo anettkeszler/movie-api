@@ -2,6 +2,7 @@ package com.codecool.movie_api.service;
 
 import com.codecool.movie_api.model.generated.Movie;
 import com.codecool.movie_api.model.generated.MovieAbout;
+import com.codecool.movie_api.utilities.JsonResponseCreator;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.json.GsonBuilderUtils;
@@ -12,6 +13,8 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class MovieApiService {
 
+    JsonResponseCreator jsonResponseCreator = new JsonResponseCreator();
+
     public Movie getMovie() {
         RestTemplate template = new RestTemplate();
         ResponseEntity<Movie> movieResponseEntity = template.exchange("http://www.omdbapi.com/?apikey=8a2bf193&s=batman", HttpMethod.GET, null, Movie.class);
@@ -21,6 +24,7 @@ public class MovieApiService {
     public Movie getSearchResult(String input) {
         RestTemplate template = new RestTemplate();
         ResponseEntity<Movie> movieResponseEntity = template.exchange("http://www.omdbapi.com/?apikey=8a2bf193&s=" + input , HttpMethod.GET, null, Movie.class);
+        System.out.println(jsonResponseCreator.getMovieNec(movieResponseEntity.getBody()));
         return movieResponseEntity.getBody();
     }
 

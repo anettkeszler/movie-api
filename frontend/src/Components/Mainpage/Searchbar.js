@@ -7,6 +7,11 @@ const Searchbar = () => {
   const [movieData, setMovieData] = useContext(MovieContext);
   const [input, setInput] = useState('');
 
+  const handleInput = (e) => {
+    let input = e.target.value;
+    setInput(input);
+  };
+
   const search = (e) => {
     if (e.preventDefault) {
       axios
@@ -21,11 +26,6 @@ const Searchbar = () => {
         });
       console.log(input);
     }
-  };
-
-  const handleInput = (e) => {
-    let input = e.target.value;
-    setInput(input);
   };
 
   useEffect(() => {
