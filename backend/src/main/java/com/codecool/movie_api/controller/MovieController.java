@@ -34,4 +34,5 @@ public class MovieController {
     public Object getMovieData(@RequestBody String id) {
         return movieApiService.getMovieData(id);
     }
+
 }
