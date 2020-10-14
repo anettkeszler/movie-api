@@ -11,6 +11,8 @@ import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.SQLException;
+
 
 @RestController
 public class MovieController {
@@ -54,5 +56,11 @@ public class MovieController {
         System.out.println("Controller: " + about);
         watchListRepository.save(about);
     }
+
+//    @CrossOrigin
+//    @GetMapping("/watchlist")
+//    public JSONObject getWatchListDataFromDb() throws SQLException {
+//        return jsonResponseCreator.createJsonObjectFromDataBase();
+//    }
 
 }
