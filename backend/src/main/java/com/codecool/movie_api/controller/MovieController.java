@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.SQLException;
+import java.util.List;
 
 
 @RestController
@@ -57,10 +58,11 @@ public class MovieController {
         watchListRepository.save(about);
     }
 
-//    @CrossOrigin
-//    @GetMapping("/watchlist")
-//    public JSONObject getWatchListDataFromDb() throws SQLException {
+    @CrossOrigin
+    @GetMapping("/watchlist/get")
+    public List<WatchList> getWatchListDataFromDb() throws SQLException {
 //        return jsonResponseCreator.createJsonObjectFromDataBase();
-//    }
+        return watchListRepository.findAll();
+    }
 
 }

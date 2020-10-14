@@ -13,15 +13,15 @@ export function MovieDetail(props) {
   const poster = movieDetail.Poster;
 
   const add = () => {
-    setWatchlist((prevWatchlist) => [...prevWatchlist, movieDetail]);
+    setWatchlist(prevWatchlist => [...prevWatchlist, movieDetail]);
     console.log(movieDetail);
     const movie = {
       imdbId: imdbId,
       title: title,
-      year: year,
+      releaseYear: year,
       poster: poster,
     };
-    axios.post('http://localhost:8080/watchlist', movie).catch((error) => {
+    axios.post('http://localhost:8080/watchlist', movie).catch(error => {
       console.log(error);
     });
   };
@@ -31,10 +31,10 @@ export function MovieDetail(props) {
       .post('http://localhost:8080/about', imdbId, {
         headers: { 'Content-Type': 'text/plain' },
       })
-      .then((response) => {
+      .then(response => {
         setMovieDetail(response.data);
       })
-      .catch((error) => {
+      .catch(error => {
         console.log(error);
       });
   }, [imdbId, url]);
