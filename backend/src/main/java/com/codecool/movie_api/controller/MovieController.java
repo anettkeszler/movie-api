@@ -1,7 +1,11 @@
 package com.codecool.movie_api.controller;
 
 import com.codecool.movie_api.model.generated.Movie;
+import com.codecool.movie_api.model.generated.MovieAbout;
 import com.codecool.movie_api.service.MovieApiService;
+import com.codecool.movie_api.utilities.JsonResponseCreator;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,6 +14,9 @@ public class MovieController {
 
     @Autowired
     private MovieApiService movieApiService;
+
+    @Autowired
+    private JsonResponseCreator jsonResponseCreator;
 
     @CrossOrigin
     @GetMapping("/movie")
@@ -33,6 +40,12 @@ public class MovieController {
     @PostMapping("/about")
     public Object getMovieData(@RequestBody String id) {
         return movieApiService.getMovieData(id);
+    }
+
+    @CrossOrigin
+    @PostMapping("/watchlist")
+    public void getMovieWatchList(@RequestBody Object about) {
+        System.out.println("Controller: " + about);
     }
 
 }

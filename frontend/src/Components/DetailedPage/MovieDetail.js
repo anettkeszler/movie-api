@@ -6,11 +6,24 @@ import { WatchlistContext } from '../Provider/Watchlistprovider';
 export function MovieDetail(props) {
   const [movieDetail, setMovieDetail] = useState([[]]);
   const [watchlist, setWatchlist] = useContext(WatchlistContext);
-  const imdbId = props.match.params.imdbID;
   const url = `http://localhost:8080/about`;
+  const imdbId = props.match.params.imdbID;
+  const title = movieDetail.Title;
+  const year = movieDetail.Year;
+  const poster = movieDetail.Poster;
 
   const add = () => {
     setWatchlist((prevWatchlist) => [...prevWatchlist, movieDetail]);
+    console.log(movieDetail);
+    const movie = {
+      imdbID: imdbId,
+      title: title,
+      year: year,
+      poster: poster,
+    };
+    axios.post('http://localhost:8080/watchlist', movie).catch((error) => {
+      console.log(error);
+    });
   };
 
   useEffect(() => {

@@ -24,7 +24,6 @@ public class MovieApiService {
     public Movie getSearchResult(String input) {
         RestTemplate template = new RestTemplate();
         ResponseEntity<Movie> movieResponseEntity = template.exchange("http://www.omdbapi.com/?apikey=8a2bf193&s=" + input , HttpMethod.GET, null, Movie.class);
-        System.out.println(jsonResponseCreator.getMovieNec(movieResponseEntity.getBody()));
         return movieResponseEntity.getBody();
     }
 

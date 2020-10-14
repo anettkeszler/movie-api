@@ -281,34 +281,33 @@ public class MovieAbout{
 	}
 
 	@Override
- 	public String toString(){
-		return 
-			"MovieAbout{" + 
-			"metascore = '" + metascore + '\'' + 
-			",boxOffice = '" + boxOffice + '\'' + 
-			",website = '" + website + '\'' + 
-			",imdbRating = '" + imdbRating + '\'' + 
-			",imdbVotes = '" + imdbVotes + '\'' + 
-			",ratings = '" + ratings + '\'' + 
-			",runtime = '" + runtime + '\'' + 
-			",language = '" + language + '\'' + 
-			",rated = '" + rated + '\'' + 
-			",production = '" + production + '\'' + 
-			",released = '" + released + '\'' + 
-			",imdbID = '" + imdbID + '\'' + 
-			",plot = '" + plot + '\'' + 
-			",director = '" + director + '\'' + 
-			",title = '" + title + '\'' + 
-			",actors = '" + actors + '\'' + 
-			",response = '" + response + '\'' + 
-			",type = '" + type + '\'' + 
-			",awards = '" + awards + '\'' + 
-			",dVD = '" + dVD + '\'' + 
-			",year = '" + year + '\'' + 
-			",poster = '" + poster + '\'' + 
-			",country = '" + country + '\'' + 
-			",genre = '" + genre + '\'' + 
-			",writer = '" + writer + '\'' + 
-			"}";
-		}
+	public String toString() {
+		return "MovieAbout{" +
+				"metascore='" + metascore + '\'' +
+				", boxOffice='" + boxOffice + '\'' +
+				", website='" + website + '\'' +
+				", imdbRating='" + imdbRating + '\'' +
+				", imdbVotes='" + imdbVotes + '\'' +
+				", ratings=" + ratings +
+				", runtime='" + runtime + '\'' +
+				", language='" + language + '\'' +
+				", rated='" + rated + '\'' +
+				", production='" + production + '\'' +
+				", released='" + released + '\'' +
+				", imdbID='" + imdbID + '\'' +
+				", plot='" + plot + '\'' +
+				", director='" + director + '\'' +
+				", title='" + title + '\'' +
+				", actors='" + actors + '\'' +
+				", response='" + response + '\'' +
+				", type='" + type + '\'' +
+				", awards='" + awards + '\'' +
+				", dVD='" + dVD + '\'' +
+				", year='" + year + '\'' +
+				", poster='" + poster + '\'' +
+				", country='" + country + '\'' +
+				", genre='" + genre + '\'' +
+				", writer='" + writer + '\'' +
+				'}';
+	}
 }
