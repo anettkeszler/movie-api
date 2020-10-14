@@ -24,10 +24,9 @@ public class WatchList {
     @Column(nullable = false)
     private String title;
 
-    @Column(nullable=false, unique = true)
     private String imdbId;
 
-    private LocalDate year;
+    private String year;
 
     private String poster;
 }

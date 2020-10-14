@@ -16,7 +16,7 @@ export function MovieDetail(props) {
     setWatchlist((prevWatchlist) => [...prevWatchlist, movieDetail]);
     console.log(movieDetail);
     const movie = {
-      imdbID: imdbId,
+      imdbId: imdbId,
       title: title,
       year: year,
       poster: poster,

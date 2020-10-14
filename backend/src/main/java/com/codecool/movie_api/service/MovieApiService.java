@@ -2,6 +2,7 @@ package com.codecool.movie_api.service;
 
 import com.codecool.movie_api.model.generated.Movie;
 import com.codecool.movie_api.model.generated.MovieAbout;
+import com.codecool.movie_api.repository.WatchListRepository;
 import com.codecool.movie_api.utilities.JsonResponseCreator;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +15,9 @@ import org.springframework.web.client.RestTemplate;
 public class MovieApiService {
 
     JsonResponseCreator jsonResponseCreator = new JsonResponseCreator();
+
+
+    public WatchListRepository watchListRepository;
 
     public Movie getMovie() {
         RestTemplate template = new RestTemplate();

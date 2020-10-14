@@ -5,4 +5,5 @@ import com.codecool.movie_api.model.generated.Movie;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface WatchListRepository extends JpaRepository<WatchList, Long> {
+
 }

@@ -1,13 +1,16 @@
 package com.codecool.movie_api.controller;
 
+import com.codecool.movie_api.entity.WatchList;
 import com.codecool.movie_api.model.generated.Movie;
 import com.codecool.movie_api.model.generated.MovieAbout;
+import com.codecool.movie_api.repository.WatchListRepository;
 import com.codecool.movie_api.service.MovieApiService;
 import com.codecool.movie_api.utilities.JsonResponseCreator;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
 
 @RestController
 public class MovieController {
@@ -17,6 +20,9 @@ public class MovieController {
 
     @Autowired
     private JsonResponseCreator jsonResponseCreator;
+
+    @Autowired
+    private WatchListRepository watchListRepository;
 
     @CrossOrigin
     @GetMapping("/movie")
@@ -44,8 +50,9 @@ public class MovieController {
 
     @CrossOrigin
     @PostMapping("/watchlist")
-    public void getMovieWatchList(@RequestBody Object about) {
+    public void getMovieWatchList(@RequestBody WatchList about) {
         System.out.println("Controller: " + about);
+        watchListRepository.save(about);
     }
 
 }
