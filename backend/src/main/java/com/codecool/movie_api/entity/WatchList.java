@@ -26,7 +26,7 @@ public class WatchList {
 
     private String imdbId;
 
-    private String year;
+    private String releaseYear;
 
     private String poster;
 }
