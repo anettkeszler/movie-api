@@ -5,11 +5,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 @Data
 @NoArgsConstructor
@@ -24,9 +22,21 @@ public class WatchList {
     @Column(nullable = false)
     private String title;
 
+    @Column(nullable = false, unique = true)
     private String imdbId;
 
-    private String releaseYear;
+    private LocalDate releaseYear;
 
     private String poster;
+
+    @Transient
+    private long age;
+
+    public void calculateAge() {
+        if (releaseYear != null) {
+            age = ChronoUnit.YEARS.between(releaseYear, LocalDate.now());
+        }
+    }
+
+
 }

@@ -22,9 +22,6 @@ public class MovieController {
     private MovieApiService movieApiService;
 
     @Autowired
-    private JsonResponseCreator jsonResponseCreator;
-
-    @Autowired
     private WatchListRepository watchListRepository;
 
     @CrossOrigin
@@ -61,7 +58,6 @@ public class MovieController {
     @CrossOrigin
     @GetMapping("/watchlist/get")
     public List<WatchList> getWatchListDataFromDb() throws SQLException {
-//        return jsonResponseCreator.createJsonObjectFromDataBase();
         return watchListRepository.findAll();
     }
 
