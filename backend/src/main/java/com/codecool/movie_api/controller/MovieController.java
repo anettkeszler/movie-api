@@ -1,18 +1,18 @@
 package com.codecool.movie_api.controller;
 
 import com.codecool.movie_api.entity.WatchList;
-import com.codecool.movie_api.model.generated.Movie;
-import com.codecool.movie_api.model.generated.MovieAbout;
+import com.codecool.movie_api.entity.Movie;
+
+import com.codecool.movie_api.model.generated.GeneratedMovie;
+import com.codecool.movie_api.repository.MovieRepository;
 import com.codecool.movie_api.repository.WatchListRepository;
 import com.codecool.movie_api.service.MovieApiService;
-import com.codecool.movie_api.utilities.JsonResponseCreator;
-import org.json.JSONArray;
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.SQLException;
+import javax.websocket.server.PathParam;
 import java.util.List;
+import java.util.Optional;
 
 
 @RestController
@@ -24,9 +24,13 @@ public class MovieController {
     @Autowired
     private WatchListRepository watchListRepository;
 
+    @Autowired
+    private MovieRepository movieRepository;
+
+
     @CrossOrigin
     @GetMapping("/movie")
-    public Movie getMovie() {
+    public GeneratedMovie getMovie() {
         return movieApiService.getMovie();
     }
 
@@ -49,10 +53,27 @@ public class MovieController {
     }
 
     @CrossOrigin
-    @PostMapping("/watchlist")
-    public void getMovieWatchList(@RequestBody WatchList about) {
-        System.out.println("Controller: " + about);
-        watchListRepository.save(about);
+    @PostMapping("/watchlist/{id}")
+    public void getMovieWatchList(@RequestBody Movie detail, @PathVariable("id") String id) {
+        System.out.println("Controller: " + detail);
+        System.out.println(id);
+        Optional<WatchList> watchListId = watchListRepository.findById(Long.parseLong(id));
+        movieRepository.save(detail);
+
+        if(watchListId.isPresent()) {
+            watchListId.get().getMovies().add(detail.getImdbId());
+            watchListRepository.save(watchListId.get());
+        }
+
+    }
+
+    @CrossOrigin
+    @PostMapping("/watchlist/add")
+
+    public void addToWatchList() {
+
+        watchListRepository.save(WatchList.builder().name("thriller").build());
+
     }
 
     @CrossOrigin
@@ -70,5 +91,12 @@ public class MovieController {
         long s = Long.parseLong(sb.toString());
         watchListRepository.deleteById(s);
     }
+
+    @CrossOrigin
+    @GetMapping("/get/watchlist/{id}")
+    public WatchList getWatchListById(@PathVariable("id") String id) {
+        return watchListRepository.findById(Long.parseLong(id)).get();
+    }
+
 
 }

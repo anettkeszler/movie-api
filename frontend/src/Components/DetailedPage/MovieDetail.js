@@ -21,7 +21,7 @@ export function MovieDetail(props) {
       releaseYear: year,
       poster: poster,
     };
-    axios.post('http://localhost:8080/watchlist', movie).catch(error => {
+    axios.post('http://localhost:8080/watchlist/1', movie).catch(error => {
       console.log(error);
     });
   };
