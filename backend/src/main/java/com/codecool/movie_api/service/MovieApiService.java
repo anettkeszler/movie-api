@@ -14,7 +14,7 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class MovieApiService {
 
-    JsonResponseCreator jsonResponseCreator = new JsonResponseCreator();
+//    JsonResponseCreator jsonResponseCreator = new JsonResponseCreator();
 
 
     public WatchListRepository watchListRepository;
