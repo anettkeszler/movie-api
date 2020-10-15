@@ -18,6 +18,7 @@
   margin: 10px;
   background-color: rgb(32, 32, 34);
   text-decoration: none;
+  position: relative;
 }
 
 .card:hover {
@@ -25,6 +26,10 @@
   cursor: pointer;
   transform: scale(1.05);
   transition: all 0.2s ease-in-out;
+}
+
+.card:hover .delete-btn {
+  display: block;
 }
 
 .card-img {
@@ -49,4 +54,13 @@
   font-size: 40px;
   width: 100%;
   padding-top: 30px;
+}
+
+.delete-btn {
+  top: 0;
+  right: 0;
+  position: absolute;
+  font-size: 30px;
+  color: white;
+  display: none;
 }

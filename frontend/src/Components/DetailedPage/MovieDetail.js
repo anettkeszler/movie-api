@@ -28,7 +28,7 @@ export function MovieDetail(props) {
 
   useEffect(() => {
     axios
-      .post('http://localhost:8080/about', imdbId, {
+      .post(url, imdbId, {
         headers: { 'Content-Type': 'text/plain' },
       })
       .then(response => {
