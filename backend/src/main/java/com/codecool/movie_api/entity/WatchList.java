@@ -33,17 +33,10 @@ public class WatchList {
     @Transient
     private long age;
 
-    public LocalDate parseReleaseYearToLocalDate(String releaseYear) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy");
-        String date = releaseYear;
-        LocalDate localDate = LocalDate.parse(date, formatter);
-        return localDate;
-    }
-
     public void calculateAge() {
-        LocalDate localDate = parseReleaseYearToLocalDate(releaseYear);
         if (releaseYear != null) {
-            age = ChronoUnit.YEARS.between(localDate, LocalDate.now());
+            int parsedReleaseYear = Integer.parseInt(releaseYear);
+            age = LocalDate.now().getYear() - parsedReleaseYear;
         }
     }
 
