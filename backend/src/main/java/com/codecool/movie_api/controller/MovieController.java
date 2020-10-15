@@ -57,8 +57,18 @@ public class MovieController {
 
     @CrossOrigin
     @GetMapping("/watchlist/get")
-    public List<WatchList> getWatchListDataFromDb() throws SQLException {
+    public List<WatchList> getWatchListDataFromDb() {
         return watchListRepository.findAll();
+    }
+
+    @CrossOrigin
+    @PostMapping("/delete")
+    public void geIdToDeleteFromWatchList(@RequestBody String id) {
+        StringBuffer sb = new StringBuffer(id);
+        sb.deleteCharAt(sb.length()-1);
+        System.out.println(sb);
+        long s = Long.parseLong(sb.toString());
+        watchListRepository.deleteById(s);
     }
 
 }
