@@ -34,7 +34,7 @@ public class WatchListRepositoryTest {
         WatchList movie = WatchList.builder()
                 .title("Ozark")
                 .imdbId("12345")
-                .releaseYear(LocalDate.of(2018, 2, 16))
+                .releaseYear("2018")
                 .build();
 
         watchListRepository.save(movie);
@@ -49,7 +49,6 @@ public class WatchListRepositoryTest {
         WatchList movie = WatchList.builder()
                 .title("Ozark")
                 .imdbId("12345")
-                .releaseYear(LocalDate.of(2018, 2, 16))
                 .build();
 
         watchListRepository.save(movie);
@@ -57,7 +56,6 @@ public class WatchListRepositoryTest {
         WatchList movie2 = WatchList.builder()
                 .title("Ozark")
                 .imdbId("12345")
-                .releaseYear(LocalDate.of(2018, 2, 16))
                 .build();
         watchListRepository.saveAndFlush(movie2);
     }
@@ -65,7 +63,7 @@ public class WatchListRepositoryTest {
     @Test(expected = DataIntegrityViolationException.class)
     public void movieTitleAndImdbIdShouldBeNotNull() {
         WatchList movie = WatchList.builder()
-                .releaseYear(LocalDate.of(2018, 2, 16))
+                .releaseYear("2018")
                 .build();
         watchListRepository.save(movie);
     }
@@ -75,7 +73,7 @@ public class WatchListRepositoryTest {
         WatchList movie = WatchList.builder()
                 .title("Ozark")
                 .imdbId("12345")
-                .releaseYear(LocalDate.of(2018, 2, 16))
+                .releaseYear("2018")
                 .build();
 
         movie.calculateAge();
@@ -87,7 +85,7 @@ public class WatchListRepositoryTest {
         WatchList movie = WatchList.builder()
                 .title("Ozark")
                 .imdbId("12345")
-                .releaseYear(LocalDate.of(2018, 2, 16))
+                .releaseYear("2018")
                 .build();
 
         movie.calculateAge();

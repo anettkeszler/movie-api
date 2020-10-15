@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 
 @Data
@@ -25,16 +26,24 @@ public class WatchList {
     @Column(nullable = false, unique = true)
     private String imdbId;
 
-    private LocalDate releaseYear;
+    private String releaseYear;
 
     private String poster;
 
     @Transient
     private long age;
 
+    public LocalDate parseReleaseYearToLocalDate(String releaseYear) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy");
+        String date = releaseYear;
+        LocalDate localDate = LocalDate.parse(date, formatter);
+        return localDate;
+    }
+
     public void calculateAge() {
+        LocalDate localDate = parseReleaseYearToLocalDate(releaseYear);
         if (releaseYear != null) {
-            age = ChronoUnit.YEARS.between(releaseYear, LocalDate.now());
+            age = ChronoUnit.YEARS.between(localDate, LocalDate.now());
         }
     }
 
