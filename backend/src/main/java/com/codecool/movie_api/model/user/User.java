@@ -24,7 +24,10 @@ public class User {
     private String password;
 
     @Column
-    private String fullName;
+    private String firstName;
+
+    @Column
+    private String lastName;
 
     @Singular("watchlist")
     @OneToMany(mappedBy = "user")

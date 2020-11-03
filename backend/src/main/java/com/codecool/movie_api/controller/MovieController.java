@@ -79,7 +79,7 @@ public class MovieController {
     }
 
     @CrossOrigin
-    @PostMapping("/delete")
+    @PostMapping("/watchlist/delete")
     public void geIdToDeleteFromWatchList(@RequestBody String id) {
         System.out.println(id);
         StringBuffer sb = new StringBuffer(id);
@@ -91,7 +91,7 @@ public class MovieController {
     }
 
     @CrossOrigin
-    @GetMapping("/get/watchlist/{id}")
+    @GetMapping("/watchlist/get/{id}")
     public WatchList getWatchListById(@PathVariable("id") String id) {
         return watchListRepository.findById(Long.parseLong(id)).get();
     }
