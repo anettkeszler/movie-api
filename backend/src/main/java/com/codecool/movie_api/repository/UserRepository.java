@@ -1,7 +1,11 @@
 package com.codecool.movie_api.repository;
 
-import com.codecool.movie_api.model.user.User;
+import com.codecool.movie_api.model.user.MovieApiUser;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UserRepository extends JpaRepository<User, Long> {
+import java.util.Optional;
+
+public interface UserRepository extends JpaRepository<MovieApiUser, Long> {
+    Optional<MovieApiUser> findByUsername(String username);
+
 }

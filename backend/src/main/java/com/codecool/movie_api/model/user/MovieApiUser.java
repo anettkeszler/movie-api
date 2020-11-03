@@ -12,7 +12,7 @@ import com.codecool.movie_api.model.entity.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
+public class MovieApiUser {
     @Id
     @GeneratedValue
     Long id;
