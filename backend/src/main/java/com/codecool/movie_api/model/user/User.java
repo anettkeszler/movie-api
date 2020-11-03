@@ -30,7 +30,6 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<WatchList> watchLists;
 
-    @Singular("role")
     @ElementCollection(fetch = FetchType.EAGER)
     @Builder.Default
     private List<String> roles = new ArrayList<>();

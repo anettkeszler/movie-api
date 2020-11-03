@@ -1,6 +1,8 @@
 package com.codecool.movie_api.controller;
 
 import com.codecool.movie_api.model.entity.WatchList;
+import com.codecool.movie_api.model.entity.Movie;
+
 import com.codecool.movie_api.model.generated.GeneratedMovie;
 import com.codecool.movie_api.repository.MovieRepository;
 import com.codecool.movie_api.repository.WatchListRepository;
