@@ -11,7 +11,7 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 @Entity
-public class AboutPage {
+public class MovieDetail {
     @Id
     @GeneratedValue
     private Long id;

@@ -3,7 +3,7 @@ package com.codecool.movie_api.model.generated;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class Movie{
+public class GeneratedMovie {
 
 	@JsonProperty("Response")
 	private String response;
@@ -47,4 +47,6 @@ public class Movie{
 			",search = '" + search + '\'' + 
 			"}";
 		}
+
+
 }

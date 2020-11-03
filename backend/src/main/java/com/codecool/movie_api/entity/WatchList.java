@@ -9,6 +9,7 @@ import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -21,24 +22,13 @@ public class WatchList {
     private Long id;
 
     @Column(nullable = false)
-    private String title;
+    private String name;
 
-    @Column(nullable = false, unique = true)
-    private String imdbId;
-
-    private String releaseYear;
-
-    private String poster;
-
-    @Transient
-    private long age;
-
-    public void calculateAge() {
-        if (releaseYear != null) {
-            int parsedReleaseYear = Integer.parseInt(releaseYear);
-            age = LocalDate.now().getYear() - parsedReleaseYear;
-        }
+    @Singular("movie")
+    @ElementCollection
+    private List<String> movies;
     }
+
 
 
 }

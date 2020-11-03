@@ -1,22 +1,6 @@
 package com.codecool.movie_api.utilities;
 
-import com.codecool.movie_api.model.generated.Movie;
-import org.json.JSONArray;
-import org.json.JSONObject;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.context.annotation.Bean;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-
-import javax.persistence.EntityManager;
-import javax.websocket.Session;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.sql.*;
-import java.util.List;
-import java.util.Map;
 
 @Service
 public class JsonResponseCreator {
