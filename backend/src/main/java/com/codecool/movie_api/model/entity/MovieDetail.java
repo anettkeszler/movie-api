@@ -1,4 +1,4 @@
-package com.codecool.movie_api.entity;
+package com.codecool.movie_api.model.entity;
 
 import lombok.*;
 
@@ -11,7 +11,7 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 @Entity
-public class AboutPage {
+public class MovieDetail {
     @Id
     @GeneratedValue
     private Long id;

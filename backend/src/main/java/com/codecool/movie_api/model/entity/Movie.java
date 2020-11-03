@@ -1,4 +1,5 @@
-package com.codecool.movie_api.entity;
+package com.codecool.movie_api.model.entity;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,7 +16,7 @@ import java.time.temporal.ChronoUnit;
 @AllArgsConstructor
 @Builder
 @Entity
-public class WatchList {
+public class Movie {
     @Id
     @GeneratedValue
     private Long id;
@@ -23,7 +24,7 @@ public class WatchList {
     @Column(nullable = false)
     private String title;
 
-    @Column(nullable = false, unique = true)
+    @Column(unique = true)
     private String imdbId;
 
     private String releaseYear;
@@ -33,12 +34,25 @@ public class WatchList {
     @Transient
     private long age;
 
+    public LocalDate parseReleaseYearToLocalDate(String releaseYear) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy");
+        String date = releaseYear;
+        LocalDate localDate = LocalDate.parse(date, formatter);
+        return localDate;
+    }
+
     public void calculateAge() {
+        LocalDate localDate = parseReleaseYearToLocalDate(releaseYear);
         if (releaseYear != null) {
-            int parsedReleaseYear = Integer.parseInt(releaseYear);
-            age = LocalDate.now().getYear() - parsedReleaseYear;
+            age = ChronoUnit.YEARS.between(localDate, LocalDate.now());
         }
     }
+
+    public String getImdbId() {
+        return imdbId;
+    }
+
+
 
 
 }
