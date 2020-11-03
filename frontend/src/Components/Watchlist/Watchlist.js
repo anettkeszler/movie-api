@@ -17,14 +17,14 @@ export default function MovieCard() {
       .catch(error => {
         console.log(error);
       });
-  });
+  }, []);
 
-  const del = (id) => {
-    console.log(id)
-    axios.post("http://localhost:8080/delete", id).catch(error => {
+  const del = id => {
+    console.log(id);
+    axios.post('http://localhost:8080/delete', id).catch(error => {
       console.log(error);
     });
-  }
+  };
 
   return (
     <div className='container'>
@@ -33,17 +33,19 @@ export default function MovieCard() {
       {watchlist.map(movie => {
         return (
           <div className='card'>
-          <div className="delete-btn" onClick={() => del(movie.id)} >X</div>
-          <Link to={`/movie/${movie.imdbId}`}>
-            {movie.Poster === 'N/A' ? (
-              <img className='card-img' src={defaultPoster} alt='' />
-            ) : (
-              <img className='card-img' src={movie.poster} alt='' />
-            )}
-            <div className='card-titles'>
-              {movie.title} ({movie.releaseYear})
+            <div className='delete-btn' onClick={() => del(movie.id)}>
+              X
             </div>
-          </Link>
+            <Link to={`/movie/${movie.imdbId}`}>
+              {movie.Poster === 'N/A' ? (
+                <img className='card-img' src={defaultPoster} alt='' />
+              ) : (
+                <img className='card-img' src={movie.poster} alt='' />
+              )}
+              <div className='card-titles'>
+                {movie.title} ({movie.releaseYear})
+              </div>
+            </Link>
           </div>
         );
       })}

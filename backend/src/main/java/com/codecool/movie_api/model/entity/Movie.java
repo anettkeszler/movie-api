@@ -1,4 +1,4 @@
-package com.codecool.movie_api.entity;
+package com.codecool.movie_api.model.entity;
 
 
 import lombok.AllArgsConstructor;

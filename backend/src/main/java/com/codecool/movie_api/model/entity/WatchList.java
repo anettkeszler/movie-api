@@ -1,14 +1,8 @@
-package com.codecool.movie_api.entity;
+package com.codecool.movie_api.model.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 @Data
@@ -27,8 +21,9 @@ public class WatchList {
     @Singular("movie")
     @ElementCollection
     private List<String> movies;
-    }
 
-
-
+    @ManyToOne
+    private User user;
 }
+
+

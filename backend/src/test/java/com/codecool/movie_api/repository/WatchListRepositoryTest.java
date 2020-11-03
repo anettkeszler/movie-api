@@ -1,21 +1,11 @@
 package com.codecool.movie_api.repository;
 
-import com.codecool.movie_api.entity.WatchList;
-import org.junit.Test;
+import com.codecool.movie_api.model.entity.WatchList;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.test.context.junit4.SpringRunner;
 import static org.assertj.core.api.Assertions.assertThat;
-
-
-import java.time.LocalDate;
-import java.util.List;
-
-import static org.junit.Assert.*;
 
 
 @RunWith(SpringRunner.class)
