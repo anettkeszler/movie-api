@@ -1,5 +1,6 @@
 package com.codecool.movie_api.controller;
 
+import com.codecool.movie_api.model.user.MovieApiUser;
 import com.codecool.movie_api.model.user.UserCredentials;
 import com.codecool.movie_api.security.JwtTokenServices;
 import com.codecool.movie_api.service.UserService;
@@ -7,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Required;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseCookie;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -34,7 +36,16 @@ public class AuthController {
 
     @Autowired
     private final JwtTokenServices jwtTokenServices;
+
+    @Autowired
     private final UserService userService;
+
+
+    @PostMapping("/signup")
+    public ResponseEntity<String> signup(@RequestBody MovieApiUser user) {
+        userService.saveNewUser(user);
+        return ResponseEntity.status(HttpStatus.CREATED).body(user.getUsername());
+    }
 
     @PostMapping("/login")
     public ResponseEntity login(@RequestBody UserCredentials userCredentials, HttpServletResponse response) {
@@ -74,7 +85,18 @@ public class AuthController {
                 .build();
     }
 
-//    @GetMapping("/logout")
+    @GetMapping("/logout")
+    public ResponseEntity<String> logout() {
+        ResponseCookie cookie = ResponseCookie
+                .from("token", "")
+                .maxAge(0)
+                .path("/")
+                .httpOnly(true)
+                .secure(false)
+                .build();
+        return ResponseEntity.ok().header(HttpHeaders.SET_COOKIE, cookie.toString()).body("");
+
+    }
 
 
 

@@ -13,12 +13,12 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
     private PasswordEncoder passwordEncoder;
 
     public void saveNewUser(MovieApiUser user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setRoles(Arrays.asList("ROLE_USER"));
         userRepository.save(user);
-
     }
 }
