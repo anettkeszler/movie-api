@@ -1,5 +1,6 @@
 package com.codecool.movie_api.model.entity;
 
+import com.codecool.movie_api.model.user.MovieApiUser;
 import lombok.*;
 
 import javax.persistence.*;
@@ -23,7 +24,7 @@ public class WatchList {
     private List<String> movies;
 
     @ManyToOne
-    private User user;
+    private MovieApiUser user;
 }
 
 

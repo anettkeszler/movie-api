@@ -12,7 +12,7 @@ import com.codecool.movie_api.model.entity.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
+public class MovieApiUser {
     @Id
     @GeneratedValue
     Long id;
@@ -24,13 +24,15 @@ public class User {
     private String password;
 
     @Column
-    private String fullName;
+    private String firstName;
+
+    @Column
+    private String lastName;
 
     @Singular("watchlist")
     @OneToMany(mappedBy = "user")
     private List<WatchList> watchLists;
 
-    @Singular("role")
     @ElementCollection(fetch = FetchType.EAGER)
     @Builder.Default
     private List<String> roles = new ArrayList<>();
