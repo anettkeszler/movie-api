@@ -1,6 +1,7 @@
 package com.codecool.movie_api.controller;
 
 import com.codecool.movie_api.model.user.MovieApiUser;
+import com.codecool.movie_api.model.user.SignUpRequest;
 import com.codecool.movie_api.model.user.UserCredentials;
 import com.codecool.movie_api.security.JwtTokenServices;
 import com.codecool.movie_api.service.UserService;
@@ -28,7 +29,6 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/auth")
 public class AuthController {
 
     @Autowired
@@ -42,9 +42,10 @@ public class AuthController {
 
 
     @PostMapping("/signup")
-    public ResponseEntity<String> signup(@RequestBody MovieApiUser user) {
-        userService.saveNewUser(user);
-        return ResponseEntity.status(HttpStatus.CREATED).body(user.getUsername());
+    public ResponseEntity<String> signup(@RequestBody SignUpRequest registerUser) {
+        System.out.println(registerUser);
+        userService.saveNewUser(registerUser);
+        return ResponseEntity.status(HttpStatus.CREATED).body(registerUser.getUserName());
     }
 
     @PostMapping("/login")
