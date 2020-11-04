@@ -3,7 +3,6 @@ import './Sidebar.css';
 import Logo from '../assets/Logo.jpeg';
 import axios from 'axios';
 import { MovieContext } from '../Provider/MovieProvider';
-import Footer from '../Footer/Footer';
 import { Link } from 'react-router-dom';
 
 function Sidebar() {
@@ -56,13 +55,23 @@ function Sidebar() {
   };
 
   return (
-    <div className='sidebar'>
+    <div id="mySidebar" className='sidebar'>
       <Link to={'/'}>
         <div className='logo-container'>
           {' '}
           <img className='logo-img' src={Logo} alt='logo' />
         </div>
       </Link>
+      <div>
+        <Link to={'/register'}>
+          <div className='watchlist-button'>Sign up</div>
+        </Link>
+      </div>
+      <div>
+        <Link to={'/login'}>
+          <div className='watchlist-button'>Login</div>
+        </Link>
+      </div>
       <div className='sidebar-searches'>Popular searches:</div>
       <div className='popular-searches'>
         <div className='div_link'>
@@ -96,7 +105,6 @@ function Sidebar() {
           <div className='watchlist-button'>Watchlist</div>
         </Link>
       </div>
-      <Footer />
     </div>
   );
 }

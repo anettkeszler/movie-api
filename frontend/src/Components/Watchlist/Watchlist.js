@@ -17,7 +17,7 @@ export default function MovieCard() {
       .catch(error => {
         console.log(error);
       });
-  });
+  }, []);
 
   const del = (id) => {
     console.log(id)

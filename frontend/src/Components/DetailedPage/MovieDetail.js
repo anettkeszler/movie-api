@@ -50,7 +50,7 @@ export function MovieDetail(props) {
         <div className='poster-box'>
           <img className='card-img' src={movieDetail?.Poster} alt='' />
         </div>
-        <div className='text-box'>
+        <div className='text-box-detailed'>
           <div>
             <span>Runtime: </span>
             {movieDetail.Runtime}
