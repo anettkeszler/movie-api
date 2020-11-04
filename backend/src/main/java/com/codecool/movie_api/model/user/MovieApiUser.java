@@ -12,6 +12,7 @@ import com.codecool.movie_api.model.entity.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity
 public class MovieApiUser {
     @Id
     @GeneratedValue
@@ -30,7 +31,7 @@ public class MovieApiUser {
     private String lastName;
 
     @Singular("watchlist")
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "movieApiUser", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
     private List<WatchList> watchLists;
 
     @ElementCollection(fetch = FetchType.EAGER)

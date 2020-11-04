@@ -24,7 +24,8 @@ public class WatchList {
     private List<String> movies;
 
     @ManyToOne
-    private MovieApiUser user;
+    private MovieApiUser movieApiUser;
+
 }
 
 
