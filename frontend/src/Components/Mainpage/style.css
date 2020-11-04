@@ -91,3 +91,7 @@
   background: linear-gradient(#205075, #0f383d);
   cursor: pointer;
 }
+
+.text-container {
+  justify-content: center;
+}

@@ -19,52 +19,44 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="69426d3c-26f6-4f0b-9ce9-1e0d8cec4d97" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/movie-api.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/movie-api.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/codecool/movie_api/MovieApiApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/codecool/movie_api/MovieApiApplication.java" afterDir="false" />
-    </list>
+    <list default="true" id="866410e6-7329-4c65-9eef-d3da8bf2921c" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
-    <execution />
-  </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1iBHfQkbKbYP0n9a3RM5Q4y6NsJ" />
+  <component name="ProjectId" id="1iuI93q39TU7EZQ7tYjUhOeZDtD" />
   <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/backend" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="69426d3c-26f6-4f0b-9ce9-1e0d8cec4d97" name="Default Changelist" comment="" />
-      <created>1601374167140</created>
+      <changelist id="866410e6-7329-4c65-9eef-d3da8bf2921c" name="Default Changelist" comment="" />
+      <created>1602750894761</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1601374167140</updated>
-      <workItem from="1601374170160" duration="24000" />
-      <workItem from="1601454773975" duration="1028000" />
+      <updated>1602750894761</updated>
+      <workItem from="1602750896967" duration="109000" />
     </task>
     <servers />
   </component>
@@ -83,25 +75,9 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="2080" y="-638" key="#Project_Structure" timestamp="1601455602734">
-      <screen x="1440" y="-828" width="2560" height="1417" />
-    </state>
-    <state x="2080" y="-638" key="#Project_Structure/1440.-828.2560.1417/0.23.1440.877@1440.-828.2560.1417" timestamp="1601455602734" />
-    <state x="2180" y="-463" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601455692437">
-      <screen x="1440" y="-828" width="2560" height="1417" />
-    </state>
-    <state x="2180" y="-463" key="#com.intellij.execution.impl.EditConfigurationsDialog/1440.-828.2560.1417/0.23.1440.877@1440.-828.2560.1417" timestamp="1601455692437" />
-    <state x="2270" y="-530" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1601455757129">
-      <screen x="1440" y="-828" width="2560" height="1417" />
-    </state>
-    <state x="2270" y="-530" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog/1440.-828.2560.1417/0.23.1440.877@1440.-828.2560.1417" timestamp="1601455757129" />
-    <state x="779" y="311" width="424" height="491" key="FileChooserDialogImpl" timestamp="1601374191674">
+    <state x="779" y="311" width="424" height="491" key="FileChooserDialogImpl" timestamp="1602751005249">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state x="779" y="311" width="424" height="491" key="FileChooserDialogImpl/72.27.1848.1053@72.27.1848.1053" timestamp="1601374191674" />
-    <state x="2358" y="-393" width="724" height="546" key="find.popup" timestamp="1601455235470">
-      <screen x="1440" y="-828" width="2560" height="1417" />
-    </state>
-    <state x="2358" y="-393" width="724" height="546" key="find.popup/1440.-828.2560.1417/0.23.1440.877@1440.-828.2560.1417" timestamp="1601455235470" />
+    <state x="779" y="311" width="424" height="491" key="FileChooserDialogImpl/72.27.1848.1053@72.27.1848.1053" timestamp="1602751005249" />
   </component>
 </project>

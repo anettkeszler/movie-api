@@ -7,6 +7,8 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import MovieDetail from './Components/DetailedPage/MovieDetail';
 import { WatchlistProvider } from './Components/Provider/Watchlistprovider';
 import Watchlist from './Components/Watchlist/Watchlist';
+import Login from './Components/Login/Login';
+import Register from './Components/Register/Register';
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
               <Route exact={true} path='/' component={Mainpage} />
               <Route exact path='/movie/:imdbID' component={MovieDetail} />
               <Route exact path='/watchlist' component={Watchlist} />
+              <Route exact path='/login' component={Login} />
+              <Route exact path='/register' component={Register} />
             </Switch>
           </React.Fragment>
         </MovieProvider>
