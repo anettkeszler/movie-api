@@ -39,6 +39,15 @@ function Sidebar() {
     search(input);
   };
 
+  const logout = () => {
+    axios
+    .post('http://localhost:8080/logout'
+    )
+    .catch((error) => {
+      console.log(error);
+    });
+  }
+
   const search = (input) => {
     let value = input;
     axios
@@ -72,12 +81,17 @@ function Sidebar() {
           <div className='watchlist-button'>Login</div>
         </Link>
       </div>
+      <div>
+        <Link onClick={logout}>
+          <div className='watchlist-button'>Logout</div>
+        </Link>
+      </div>
       <div className='sidebar-searches'>Popular searches:</div>
       <div className='popular-searches'>
         <div className='div_link'>
           <Link to={`/`} onClick={handleValue}>
             <p className='div_link'>Superman</p>
-          </Link>
+          </Link> 
         </div>
         <div className='div_link'>
           <Link to={`/`} onClick={handleValue}>
