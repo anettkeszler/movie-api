@@ -18,7 +18,7 @@ export default function Login() {
       password: password
     };
     console.log(userData)
-    axios.post('http://localhost:8080/login', userData).catch(error => {
+    axios.post('http://localhost:8080/auth/login', userData).catch(error => {
       console.log(error);
     });
   };
@@ -33,7 +33,7 @@ export default function Login() {
       <div className="Login">
         <form onSubmit={handleSubmit}>
         <p className="label">Log in</p>
-          <FormGroup controlId="text" bsSize="large" className="text-container">
+          <FormGroup controlId="text" className="text-container">
             <FormControl className="text-box"
               autoFocus
               type="text"
@@ -42,7 +42,7 @@ export default function Login() {
               onChange={e => setUserName(e.target.value)}
             />
           </FormGroup>
-          <FormGroup controlId="password" bsSize="large" className="text-container">
+          <FormGroup controlId="password" className="text-container">
             <FormControl className="text-box"
               value={password}
               placeholder="Password"
@@ -50,7 +50,7 @@ export default function Login() {
               type="password"
             />
           </FormGroup>
-          <Button block bsSize="large" className="button" disabled={!validateForm()} type="submit">
+          <Button block className="button" disabled={!validateForm()} type="submit">
             Login
           </Button>
         </form>
