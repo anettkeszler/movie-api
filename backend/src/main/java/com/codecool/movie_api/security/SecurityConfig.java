@@ -42,14 +42,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
-                .httpBasic().disable()
+                .httpBasic().and()
                 .cors().and()
                 .csrf().disable()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeRequests() // access rights
-                .antMatchers("/signup").permitAll()
-                .antMatchers("/signin").permitAll()
+                .antMatchers(HttpMethod.POST, "/auth/signup").permitAll()
+                .antMatchers("/auth/signin").permitAll()
                 .antMatchers(HttpMethod.GET, "/movie").permitAll()
                 .antMatchers(HttpMethod.POST, "/search").permitAll()
                 .antMatchers(HttpMethod.POST, "/sidebar").permitAll()

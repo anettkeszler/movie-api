@@ -29,6 +29,8 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequiredArgsConstructor
+@RequestMapping("/auth")
+@CrossOrigin("http://localhost:3000")
 public class AuthController {
 
     @Autowired
@@ -39,7 +41,6 @@ public class AuthController {
 
     @Autowired
     private final UserService userService;
-
 
     @PostMapping("/signup")
     public ResponseEntity<String> signup(@RequestBody SignUpRequest registerUser) {

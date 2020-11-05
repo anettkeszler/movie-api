@@ -26,14 +26,13 @@ public class MovieController {
     @Autowired
     private MovieRepository movieRepository;
 
-
-    @CrossOrigin
+    @CrossOrigin("http://localhost:3000")
     @GetMapping("/movie")
     public GeneratedMovie getMovie() {
         return movieApiService.getMovie();
     }
 
-    @CrossOrigin
+    @CrossOrigin("http://localhost:3000")
     @PostMapping("/search")
     public Object getSearchResult(@RequestBody String input) {
         return movieApiService.getSearchResult(input);
@@ -65,7 +64,7 @@ public class MovieController {
         }
     }
 
-    @CrossOrigin
+    @CrossOrigin("http://localhost:3000")
     @PostMapping("/watchlist/add")
     public void addToWatchList(@RequestBody String name) {
         watchListRepository.save(WatchList.builder().name(name).build());
