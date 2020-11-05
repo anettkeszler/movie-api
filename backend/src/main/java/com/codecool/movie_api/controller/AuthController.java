@@ -88,7 +88,7 @@ public class AuthController {
     }
 
     @GetMapping("/logout")
-    public ResponseEntity<String> logout() {
+    public void logout() {
         ResponseCookie cookie = ResponseCookie
                 .from("token", "")
                 .maxAge(0)
@@ -96,8 +96,6 @@ public class AuthController {
                 .httpOnly(true)
                 .secure(false)
                 .build();
-        return ResponseEntity.ok().header(HttpHeaders.SET_COOKIE, cookie.toString()).body("");
-
     }
 
 

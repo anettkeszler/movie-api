@@ -3,6 +3,7 @@ import Background from '../assets/movies2.jpg';
 import './Login.css';
 import axios from 'axios';
 import { Button, FormGroup, FormControl } from 'react-bootstrap';
+import { Redirect } from 'react-router-dom';
 
 export default function Login() {
   const [userName, setUserName] = useState('');
@@ -14,7 +15,7 @@ export default function Login() {
 
   const sendData = () => {
     const userData = {
-      userName: userName,
+      username: userName,
       password: password,
     };
     console.log(userData);
@@ -26,6 +27,7 @@ export default function Login() {
   function handleSubmit(event) {
     event.preventDefault();
     sendData();
+    return <Redirect to="/"/>
   }
 
   return (

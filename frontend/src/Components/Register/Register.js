@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Background from '../assets/movies2.jpg';
 import './Register.css';
 import axios from 'axios';
 import { Button, FormGroup, FormControl } from 'react-bootstrap';
@@ -23,7 +22,7 @@ export default function Register() {
     const userData = {
       firstName: firstName,
       lastName: lastName,
-      userName: userName,
+      username: userName,
       password: password,
     };
     console.log(userData);
