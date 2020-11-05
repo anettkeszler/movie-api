@@ -48,8 +48,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeRequests() // access rights
-                .antMatchers(HttpMethod.POST, "/auth/signup").permitAll()
-                .antMatchers("/auth/signin").permitAll()
+                .antMatchers(HttpMethod.POST, "/signup").permitAll()
+                .antMatchers("/signin").permitAll()
                 .antMatchers(HttpMethod.GET, "/movie").permitAll()
                 .antMatchers(HttpMethod.POST, "/search").permitAll()
                 .antMatchers(HttpMethod.POST, "/sidebar").permitAll()
