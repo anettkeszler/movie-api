@@ -17,14 +17,9 @@ public class UserService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    public void saveNewUser(SignUpRequest registerUser) {
-        MovieApiUser user = MovieApiUser.builder()
-                .firstName(registerUser.getFirstName())
-                .lastName(registerUser.getLastName())
-                .username(registerUser.getUserName())
-                .password(passwordEncoder.encode(registerUser.getPassword()))
-                .roles(Arrays.asList("ROLE_USER"))
-                .build();
+    public void saveNewUser(MovieApiUser user) {
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setRoles(Arrays.asList("ROLE_USER"));
         userRepository.save(user);
     }
 }

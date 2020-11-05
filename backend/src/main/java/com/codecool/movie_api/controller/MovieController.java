@@ -95,6 +95,13 @@ public class MovieController {
         return watchListRepository.findById(Long.parseLong(id)).get();
     }
 
+//    @CrossOrigin
+//    @GetMapping("/watchlist/get")
+
+
+
+
+
 
 
 

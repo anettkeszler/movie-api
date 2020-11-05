@@ -29,7 +29,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequiredArgsConstructor
-@CrossOrigin("http://localhost:3002")
+@CrossOrigin("http://localhost:3000")
 public class AuthController {
 
     @Autowired
@@ -42,10 +42,9 @@ public class AuthController {
     private final UserService userService;
 
     @PostMapping("/signup")
-    public ResponseEntity<String> signup(@RequestBody SignUpRequest registerUser) {
-        System.out.println(registerUser);
-        userService.saveNewUser(registerUser);
-        return ResponseEntity.status(HttpStatus.CREATED).body(registerUser.getUserName());
+    public void signup(@RequestBody MovieApiUser user) {
+        System.out.println(user);
+        userService.saveNewUser(user);
     }
 
     @PostMapping("/login")

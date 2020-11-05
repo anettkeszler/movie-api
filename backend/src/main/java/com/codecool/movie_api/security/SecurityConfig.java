@@ -1,25 +1,27 @@
 package com.codecool.movie_api.security;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
+@EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-    private final JwtTokenServices jwtTokenServices;
-    private final MovieUserDetailsService userDetailService;
+    @Autowired
+    private JwtTokenServices jwtTokenServices;
 
-    public SecurityConfig(JwtTokenServices jwtTokenServices, MovieUserDetailsService userDetailService) {
-        this.jwtTokenServices = jwtTokenServices;
-        this.userDetailService = userDetailService;
-    }
+    @Autowired
+    private MovieUserDetailsService userDetailService;
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -35,7 +37,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService());
+        auth.userDetailsService(userDetailService);
     }
 
 
@@ -43,7 +45,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
                 .httpBasic().and()
-                .cors().and()
                 .csrf().disable()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
@@ -54,9 +55,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.POST, "/search").permitAll()
                 .antMatchers(HttpMethod.POST, "/sidebar").permitAll()
                 .antMatchers(HttpMethod.POST, "/about").permitAll()
-                .antMatchers(HttpMethod.POST, "/watchlist/**").authenticated()
-                .antMatchers(HttpMethod.GET, "/watchlist/**").authenticated()
-                .anyRequest().denyAll();
+                .antMatchers("/watchlist/**").authenticated()
+                .anyRequest().denyAll()
+                .and()
+                .addFilterBefore(new JwtTokenFilter(jwtTokenServices), UsernamePasswordAuthenticationFilter.class);
+
+
     }
 
 
