@@ -14,7 +14,7 @@ export default function Login() {
 
   const sendData = () => {
     const userData = {
-      userName: userName,
+      username: userName,
       password: password,
     };
     console.log(userData);
