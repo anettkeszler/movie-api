@@ -49,7 +49,7 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity login(@RequestBody UserCredentials userCredentials, HttpServletResponse response) {
+    public ResponseEntity login(@RequestBody UserCredentials userCredentials) {
         System.out.println(userCredentials);
         try {
             String username = userCredentials.getUsername();
@@ -70,7 +70,6 @@ public class AuthController {
             model.put("username", username);
             model.put("roles", roles);
             model.put("token", token);
-            System.out.println("response: " + response);
             System.out.println(model);
 
             return ResponseEntity.ok().header(HttpHeaders.SET_COOKIE, cookie.toString()).body(model);
