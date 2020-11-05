@@ -3,6 +3,7 @@ package com.codecool.movie_api.controller;
 import com.codecool.movie_api.model.user.MovieApiUser;
 import com.codecool.movie_api.model.user.SignUpRequest;
 import com.codecool.movie_api.model.user.UserCredentials;
+import com.codecool.movie_api.repository.UserRepository;
 import com.codecool.movie_api.security.JwtTokenServices;
 import com.codecool.movie_api.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -25,6 +26,7 @@ import java.time.Duration;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
@@ -40,6 +42,9 @@ public class AuthController {
 
     @Autowired
     private final UserService userService;
+
+    @Autowired
+    private final UserRepository userRepository;
 
     @PostMapping("/signup")
     public void signup(@RequestBody MovieApiUser user) {
@@ -96,6 +101,11 @@ public class AuthController {
                 .httpOnly(true)
                 .secure(false)
                 .build();
+    }
+
+    @GetMapping("/getuser/{username}")
+    public Optional<MovieApiUser> getUser(@PathVariable("username") String username) {
+        return userRepository.findByUsername(username);
     }
 
 
