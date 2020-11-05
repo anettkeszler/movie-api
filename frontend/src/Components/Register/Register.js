@@ -21,7 +21,6 @@ export default function Register() {
   }
 
   const sendData = () => {
-    console.log(userName,password,password2);
     const userData = {
       firstName: firstName,
       lastName: lastName,
@@ -29,16 +28,18 @@ export default function Register() {
       password: password
     };
     console.log(userData)
-    axios.post('http://localhost:8080/signup', userData).catch(error => {
+    axios({
+      method: 'POST',
+      url: 'http://localhost:8080/auth/signup',
+      data: userData
+    }).catch(error => {
       console.log(error);
     });
   };
 
   function handleSubmit(event) {
     event.preventDefault();
-    sendData();
-    console.log("HELLO");
-  }
+    sendData();  }
 
   return (
     <div className="login-container">
@@ -63,7 +64,7 @@ export default function Register() {
             onChange={e => setLastName(e.target.value)}
           />
           </FormGroup>
-          <FormGroup controlId="text" bsSize="large" className="text-container">
+          <FormGroup controlId="text" className="text-container">
             <FormControl className="text-box"
               autoFocus
               type="text"
@@ -73,7 +74,7 @@ export default function Register() {
               onChange={e => setUserName(e.target.value)}
             />
           </FormGroup>
-          <FormGroup controlId="password" bsSize="large" className="text-container">
+          <FormGroup controlId="password" className="text-container">
             <FormControl className="text-box"
               value={password}
               required
@@ -83,7 +84,7 @@ export default function Register() {
               minLength="6"
             />
           </FormGroup>
-          <FormGroup controlId="password" bsSize="large" className="text-container">
+          <FormGroup controlId="password"  className="text-container">
             <FormControl className="text-box"
               value={password2}
               required

@@ -21,7 +21,7 @@ public class UserService {
         MovieApiUser user = MovieApiUser.builder()
                 .firstName(registerUser.getFirstName())
                 .lastName(registerUser.getLastName())
-                .username(registerUser.getLastName())
+                .username(registerUser.getUserName())
                 .password(passwordEncoder.encode(registerUser.getPassword()))
                 .roles(Arrays.asList("ROLE_USER"))
                 .build();
