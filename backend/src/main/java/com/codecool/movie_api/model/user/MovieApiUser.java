@@ -18,17 +18,17 @@ public class MovieApiUser {
     @GeneratedValue
     Long id;
 
-    @Column(nullable = false, unique = true)
-    private String username;
-
-    @Column(nullable = false)
-    private String password;
-
     @Column
     private String firstName;
 
     @Column
     private String lastName;
+
+    @Column(nullable = false, unique = true)
+    private String username;
+
+    @Column(nullable = false)
+    private String password;
 
     @Singular("watchlist")
     @OneToMany(mappedBy = "movieApiUser", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
