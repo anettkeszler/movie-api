@@ -2,6 +2,7 @@ package com.codecool.movie_api.security;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.GenericFilterBean;
@@ -19,25 +20,25 @@ import java.util.Arrays;
 import java.util.Optional;
 
 @Component
-@RequiredArgsConstructor
-public class JwtTokenFilter extends OncePerRequestFilter {
+public class JwtTokenFilter extends GenericFilterBean {
 
     private final JwtTokenServices jwtTokenServices;
 
-    public static final String TOKEN = "token";
+    public JwtTokenFilter(JwtTokenServices jwtTokenServices) {
+        this.jwtTokenServices = jwtTokenServices;
+    }
 
     @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-        Optional<Cookie> jwtToken =
-                Arrays.stream(Optional.ofNullable(request.getCookies()).orElse(new Cookie[]{}))
-                        .filter(cookie -> cookie.getName().equals(TOKEN))
-                        .findFirst();
-        if (jwtToken.isPresent()) {
-            UsernamePasswordAuthenticationToken userToken = jwtTokenServices.validateTokenAndExtractUserSpringToken(jwtToken.get().getValue());
-
-            SecurityContextHolder.getContext().setAuthentication(userToken);
-
+    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
+        String token = jwtTokenServices.getTokenFromRequest((HttpServletRequest) servletRequest);
+        if (token != null && jwtTokenServices.validateToken(token)) {
+            Authentication auth = jwtTokenServices.parseUserFromTokenInfo(token);
+            // Marks the user as authenticated.
+            // If this code does not run, the request will fail for routes that are configured to need authentication
+            SecurityContextHolder.getContext().setAuthentication(auth);
         }
-        filterChain.doFilter(request, response);
+        // process the next filter.
+        filterChain.doFilter(servletRequest, servletResponse);
+
     }
 }
