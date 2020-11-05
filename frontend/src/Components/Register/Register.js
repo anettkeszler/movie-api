@@ -2,20 +2,19 @@ import React, { useState, useEffect } from 'react';
 import Background from '../assets/movies2.jpg';
 import './Register.css';
 import axios from 'axios';
-import { Button, FormGroup, FormControl } from "react-bootstrap";
+import { Button, FormGroup, FormControl } from 'react-bootstrap';
 
 export default function Register() {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [userName, setUserName] = useState("");
-  const [password, setPassword] = useState("");
-  const [password2, setPassword2] = useState("");
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [userName, setUserName] = useState('');
+  const [password, setPassword] = useState('');
+  const [password2, setPassword2] = useState('');
 
   function validateForm() {
-    if (password === password2){
+    if (password === password2) {
       return true;
-    }
-    else {
+    } else {
       return false;
     }
   }
@@ -25,13 +24,13 @@ export default function Register() {
       firstName: firstName,
       lastName: lastName,
       userName: userName,
-      password: password
+      password: password,
     };
-    console.log(userData)
+    console.log(userData);
     axios({
       method: 'POST',
-      url: 'http://localhost:8080/auth/signup',
-      data: userData
+      url: 'http://localhost:8080/signup',
+      data: userData,
     }).catch(error => {
       console.log(error);
     });
@@ -39,62 +38,74 @@ export default function Register() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    sendData();  }
+    sendData();
+  }
 
   return (
-    <div className="login-container">
-      <div className="Login">
+    <div className='login-container'>
+      <div className='Login'>
         <form onSubmit={handleSubmit}>
-        <p className="label">Sign Up for Free</p>
-          <FormGroup controlId="text" bsSize="large" className="text-container">
-          <FormControl className="text-box-name"
-            autoFocus
-            type="text"
-            placeholder="First Name"
-            value={firstName}
-            required
-            onChange={e => setFirstName(e.target.value)}
-          />
-          <FormControl className="text-box-name"
-            autoFocus
-            type="text"
-            placeholder="Last Name"
-            value={lastName}
-            required
-            onChange={e => setLastName(e.target.value)}
-          />
-          </FormGroup>
-          <FormGroup controlId="text" className="text-container">
-            <FormControl className="text-box"
+          <p className='label'>Sign Up for Free</p>
+          <FormGroup controlId='text' bsSize='large' className='text-container'>
+            <FormControl
+              className='text-box-name'
               autoFocus
-              type="text"
-              placeholder="User Name"
+              type='text'
+              placeholder='First Name'
+              value={firstName}
+              required
+              onChange={e => setFirstName(e.target.value)}
+            />
+            <FormControl
+              className='text-box-name'
+              autoFocus
+              type='text'
+              placeholder='Last Name'
+              value={lastName}
+              required
+              onChange={e => setLastName(e.target.value)}
+            />
+          </FormGroup>
+          <FormGroup controlId='text' className='text-container'>
+            <FormControl
+              className='text-box'
+              autoFocus
+              type='text'
+              placeholder='User Name'
               value={userName}
               required
               onChange={e => setUserName(e.target.value)}
             />
           </FormGroup>
-          <FormGroup controlId="password" className="text-container">
-            <FormControl className="text-box"
+          <FormGroup controlId='password' className='text-container'>
+            <FormControl
+              className='text-box'
               value={password}
               required
-              placeholder="Password"
+              placeholder='Password'
               onChange={e => setPassword(e.target.value)}
-              type="password"
-              minLength="6"
+              type='password'
+              minLength='6'
             />
           </FormGroup>
-          <FormGroup controlId="password"  className="text-container">
-            <FormControl className="text-box"
+          <FormGroup controlId='password' className='text-container'>
+            <FormControl
+              className='text-box'
               value={password2}
               required
-              placeholder="Confirm Password"
+              placeholder='Confirm Password'
               onChange={e => setPassword2(e.target.value)}
-              type="password"
-              minLength="6"
+              type='password'
+              minLength='6'
             />
           </FormGroup>
-          <Button block bsSize="large" className="button" disabled={!validateForm()} type="submit">
+          <Button
+            block
+            bsSize='large'
+            className='button'
+            disabled={!validateForm()}
+            type='submit'
+          >
             Register
           </Button>
         </form>
