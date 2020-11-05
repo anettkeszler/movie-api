@@ -20,8 +20,8 @@ export default function Register() {
 
   const sendData = () => {
     const userData = {
-      firstName: firstName,
-      lastName: lastName,
+      firstname: firstName,
+      lastname: lastName,
       username: userName,
       password: password,
     };
