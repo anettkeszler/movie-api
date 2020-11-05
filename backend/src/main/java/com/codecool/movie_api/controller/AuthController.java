@@ -29,7 +29,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequiredArgsConstructor
-@CrossOrigin("http://localhost:3000")
+@CrossOrigin("http://localhost:3002")
 public class AuthController {
 
     @Autowired
@@ -50,6 +50,7 @@ public class AuthController {
 
     @PostMapping("/login")
     public ResponseEntity login(@RequestBody UserCredentials userCredentials, HttpServletResponse response) {
+        System.out.println(userCredentials);
         try {
             String username = userCredentials.getUsername();
             String password = userCredentials.getPassword();
@@ -69,6 +70,8 @@ public class AuthController {
             model.put("username", username);
             model.put("roles", roles);
             model.put("token", token);
+            System.out.println("response: " + response);
+            System.out.println(model);
 
             return ResponseEntity.ok().header(HttpHeaders.SET_COOKIE, cookie.toString()).body(model);
         } catch (AuthenticationException e) {

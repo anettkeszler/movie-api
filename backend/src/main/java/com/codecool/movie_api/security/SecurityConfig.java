@@ -49,7 +49,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests() // access rights
                 .antMatchers(HttpMethod.POST, "/signup").permitAll()
-                .antMatchers("/signin").permitAll()
+                .antMatchers("/login").permitAll()
                 .antMatchers(HttpMethod.GET, "/movie").permitAll()
                 .antMatchers(HttpMethod.POST, "/search").permitAll()
                 .antMatchers(HttpMethod.POST, "/sidebar").permitAll()
